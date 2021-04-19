@@ -1,0 +1,16 @@
+.category_container {
+  margin: 20px 20px;
+}
+.category_container > .btn-primary {
+  margin: 10px 10px;
+}
+.card{
+    margin: 10px 10px;
+    width: 600px;
+}
+.header{
+    height: 50px;
+    width: auto;
+    margin: 10px 10px;
+    background-color: tomato;
+}

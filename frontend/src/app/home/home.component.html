@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="col">
+    <a [routerLink]="['register']">Register</a>
+    <a [routerLink]="['login']">Login</a>
+  </div>
+
+  <p>select location and restaurant:)</p>
+  <select
+    name="restaurant"
+    class="rounded-inputs20 select-select col-md-3"
+    (change)="onChange($event.target.value)"
+  >
+    <option *ngFor="let location of locations" [value]="location.id">
+      {{ location.name }}
+    </option>
+  </select>
+
+  <select
+    id="sel1"
+    name="location"
+    class="rounded-inputs20 select-select col-md-3"
+  >
+    <option *ngFor="let restaurant of restaurants" [value]="restaurant">
+      {{ restaurant }}
+    </option>
+  </select>
+  <a routerLink="/restaurants"
+    ><button class="btn btn-success">Search</button></a
+  >
+</div>
