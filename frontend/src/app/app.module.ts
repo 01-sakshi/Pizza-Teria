@@ -57,7 +57,33 @@ const appRoutes: Routes = [
   },
   { path: "register", component: RegisterComponent },
   { path: "login", component: LoginComponent },
-  { path: "restaurants", component: RestaurantsComponent }
+  { path: "restaurants", children: [
+    {
+      component: RestaurantsComponent,
+      path: ''
+    },
+    {
+      component: CartTabComponent,
+      path: 'cart-tab',
+    },
+    {
+      path: 'menu-tab',
+      children: [
+        {
+          component: MenuTabComponent,
+          path: ''
+        },
+        {
+          component: ViewProductComponent,
+          path: 'view-product'
+        }
+      ]
+    },
+    {
+      component: ProfileTabComponent,
+      path: 'profile-tab',
+    },
+  ]}
 ];
 @NgModule({
   declarations: [

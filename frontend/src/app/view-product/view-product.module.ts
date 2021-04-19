@@ -1,15 +1,13 @@
-// import { NgModule } from '@angular/core';
-// import { CommonModule } from '@angular/common';
-// import { ViewProductComponent } from './view-product.component';
-// import { ViewProductRoutingModule } from './view-product-routing.module';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ViewProductComponent } from './view-product.component';
 
 
 
-// @NgModule({
-//   declarations: [ViewProductComponent],
-//   imports: [
-//     CommonModule,
-//     ViewProductRoutingModule
-//   ]
-// })
-// export class ViewProductModule { }
+@NgModule({
+  declarations: [ViewProductComponent],
+  imports: [
+    CommonModule
+  ]
+})
+export class ViewProductModule { }

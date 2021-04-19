@@ -1,3 +1,12 @@
-<div class="container">
+<!-- <div class="container">
   <h5 align = "center">Welcome {{modelUser.firstname}}</h5>
-</div>
+</div> -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="navbar-nav">
+    <a class="nav-item nav-link" [routerLink]="['menu-tab']">Menu</a>
+    <a class="nav-item nav-link" [routerLink]="['cart-tab']">Cart</a>
+    <a class="nav-item nav-link" [routerLink]="['profile-tab']">Profile</a>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

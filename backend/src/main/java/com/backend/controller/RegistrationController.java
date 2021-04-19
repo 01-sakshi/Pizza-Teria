@@ -12,7 +12,7 @@ import com.backend.dao.UserDaoImpl;
 import com.backend.model.User;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:4200"})
+@CrossOrigin(origins = {"http://localhost:4209"})
 public class RegistrationController {
 
 	@Autowired

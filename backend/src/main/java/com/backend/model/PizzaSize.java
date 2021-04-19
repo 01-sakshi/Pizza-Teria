@@ -3,21 +3,21 @@ package com.backend.model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity(name = "pizzaToppings")
-public class PizzaToppings {
+@Entity(name = "pizzaSize")
+public class PizzaSize {
 	@Id
 	private int id;
-	private String topping;
+	private String size;
 	private int price;
 
-	PizzaToppings() {
+	PizzaSize() {
 
 	}
 
-	public PizzaToppings(int id, String topping, int price) {
+	public PizzaSize(int id, String size, int price) {
 		super();
 		this.id = id;
-		this.topping = topping;
+		this.size = size;
 		this.price = price;
 	}
 
@@ -29,12 +29,12 @@ public class PizzaToppings {
 		this.id = id;
 	}
 
-	public String getTopping() {
-		return topping;
+	public String getSize() {
+		return size;
 	}
 
-	public void setTopping(String topping) {
-		this.topping = topping;
+	public void setSize(String size) {
+		this.size = size;
 	}
 
 	public int getPrice() {
@@ -47,7 +47,7 @@ public class PizzaToppings {
 
 	@Override
 	public String toString() {
-		return "PizzaToppings [id=" + id + ", topping=" + topping + ", price=" + price + "]";
+		return "PizzaSize [id=" + id + ", size=" + size + ", price=" + price + "]";
 	}
 
 }

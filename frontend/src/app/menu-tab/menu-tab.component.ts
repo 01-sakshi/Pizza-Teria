@@ -124,7 +124,7 @@ export class MenuTabComponent implements OnInit {
         this.itemService.item = res;
       }
     );
-    this.router.navigate(['/home/menu-tab/view-product']);
+    this.router.navigate(['/restaurants/menu-tab/view-product']);
   }
 
   constructor(public itemService:ItemService, private router: Router) {}
