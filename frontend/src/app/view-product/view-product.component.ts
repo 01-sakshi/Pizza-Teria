@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 import { ItemService } from "../service/item.service";
 import { PizzaSizeService } from "../service/pizza-size.service";
 import { PizzaToppingService } from "../service/pizza-topping.service";
+import { CartService } from '../service/cart.service';
 
 @Component({
   selector: "app-view-product",
@@ -14,9 +15,16 @@ export class ViewProductComponent implements OnInit {
     public itemService: ItemService,
     public pizzaSizeService: PizzaSizeService,
     public pizzaToppingService: PizzaToppingService,
-    private router: Router
+    private router: Router,
+    private cartService: CartService
   ) {}
 
+  addToCart() {
+    this.router.navigate(["../home/cart-tab"]);
+    // this.cartService.addToCart();
+    window.alert('Your product has been added to the cart!');
+  }
+  
   ngOnInit(): void {
     this.getAllSizes();
     this.getAllToppings();

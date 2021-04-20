@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <div class="col">
     <a [routerLink]="['register']">Register</a>
     <a [routerLink]="['login']">Login</a>
@@ -27,4 +27,441 @@
   <a routerLink="/restaurants"
     ><button class="btn btn-success">Search</button></a
   >
+</div> -->
+<!DOCTYPE html>
+
+<html lang="">
+<!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
+<head>
+<title>PizzaTeria</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<!-- <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all"> -->
+</head>
+<body id="top">
+<div class="bgded overlay" style="background-image:url('images/demo/backgrounds/01.png');"> 
+  <!-- ################################################################################################ -->
+  <div class="wrapper row0">
+    <div id="topbar" class="hoc clear">
+      <div class="fl_left"> 
+        <!-- ################################################################################################ -->
+        <ul class="nospace">
+          <li><i class="fas fa-phone rgtspace-5"></i> +91 9999999999</li>
+          <li><i class="far fa-envelope rgtspace-5"></i> pizza_info@domain.com</li>
+        </ul>
+        <!-- ################################################################################################ -->
+      </div>
+      <div class="fl_right"> 
+        <!-- ################################################################################################ -->
+        <ul class="nospace">
+          <!-- <li><a href="index.html"><i class="fas fa-home"></i></a></li> -->
+          <!-- <li><a href="#" title="Help Centre"><i class="far fa-life-ring"></i></a></li> -->
+          <li><a href="http://localhost:4200/login" title="Login">Login</a></li>
+          <li><a href="http://localhost:4200/register" title="Sign Up/register">Register</a></li>
+          <!-- <li id="searchform">
+            <!-- <div>
+              <form action="#" method="post">
+                <fieldset>
+                  <legend>Quick Search:</legend>
+                  <input type="text" placeholder="Enter search term&hellip;">
+                  <button type="submit"><i class="fas fa-search"></i></button>
+                </fieldset>
+              </form>
+            </div> -->
+          <!-- </li> --> 
+        </ul>
+        <!-- ################################################################################################ -->
+      </div>
+    </div>
+  </div>
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <div class="head">
+  <div class="wrapper row1">
+    <header id="header" class="hoc clear">
+      <div id="logo" class="fl_left"> 
+        
+        <!-- ################################################################################################ -->
+      <b><h1>PizzaTeria</h1></b>
+      <p>Pizza is not a 'trend' it's a way of life</p>
+      <!-- <div class="col">
+        <a [routerLink]="['register']">Register</a>
+        <a [routerLink]="['login']">Login</a>
+      <!-- </div> -->
+      <!-- <p>select location and restaurant:)</p> --> 
+       <div  style="display:block;">
+     <select
+        name="location"
+       class="o"
+        (change)="onChange($event.target.value)"
+      required> <optgroup label="SELECT LOCATION">
+        <option *ngFor="let location of locations" class="o" [value]="location.id">
+          {{ location.name }}
+        </option>
+      </optgroup>
+      </select>
+      <select
+        id="sel1"
+        name="restaurant"
+        class="o"
+      required><optgroup label="SELECT RESTAURANT">
+        <option *ngFor="let restaurant of restaurants" class="o" [value]="restaurant">
+          {{ restaurant }}
+        </option>
+      </select>
+      <a routerLink="/login"
+        ><button class="btn btn-success">Search</button></a
+      >
+    </div> 
+    </div> 
+    </header>
+  </div>
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <div id="pageintro" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <article>
+
+      <h3 class="heading">Get Pizza-fied</h3>
+      <p>Pizza has always been a universally favorite snack, but despite earning a consistently top spot in people’s go-to list, it somehow finds itself lumped with greasy fast foods. Media often gives the pizza a bad light, especially for health-conscious eaters who are mindful of their calorie intake.</p>
+<p>Diet fads and nutritionists say that eating good pizza should be done in moderation, but science finds that having another slice is healthier for you more than you realize. </p>
+      
+
+<!-- <footer>
+        <ul class="nospace inline pushright">
+          <li><a class="btn" href="#">Pharetra etiam</a></li>
+          <li><a class="btn inverse" href="#">Sagittis massa</a></li>
+        </ul>
+      </footer> -->
+    </article>
+    <!-- ################################################################################################ -->
+  </div>
+  <!-- ################################################################################################ -->
 </div>
+<!-- End Top Background Image Wrapper -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row3">
+  <main class="hoc container clear"> 
+    <!-- main body -->
+    <!-- ################################################################################################ -->
+    <section id="introblocks">
+      <ul class="nospace group btmspace-80">
+        <li class="one_third first">
+          <figure><div class="zoom"><img src="./../assets/images/4x_-_No_min_order_x0bxuf.jpg"></div>
+            <figcaption>
+              <h6 class="heading">No Minimum Order</h6>
+              <p>Order in for yourself or for the group, with no restrictions on order value</p>
+            </figcaption>
+          </figure>
+        </li>
+        <li class="one_third">
+          <figure><div class="zoom"><img src="./../assets/images/track1.jpg" alt=""></div><br>
+            <figcaption>
+              <h6 class="heading">Live Order Tracking</h6>
+              <p>Know where your order is at all times, from the restaurant to your doorstep.</p>
+            </figcaption>
+          </figure>
+        </li>
+        <li class="one_third">
+          <figure><div class="zoom"><img src="./../assets/images/taste1.jpg" alt=""></div><br><br>
+            <figcaption>
+              <h6 class="heading">Fresh Menu</h6>
+              <p>We don't deliver food, We deliver taste.</p>
+            </figcaption>
+          </figure>
+        </li>
+      </ul>
+    </section>
+    <!-- ################################################################################################ -->
+    <hr class="btmspace-80">
+    <!-- ################################################################################################ -->
+    <div class="wrapper row2">
+      <div class="hoc container clear"> 
+        <!-- ################################################################################################ -->
+        <div class="sectiontitle">
+          <p class="nospace font-xs">Take A Look Into</p>
+          <p class="heading underline font-x2">Restaurant Gallery</p>
+        </div>
+        <ul class="nospace group team">
+          <li class="one_quarter first">
+            <figure><div class="zoom"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHHBJBhnz2LdJph56JyEzcdk0BaAuBkltsyg&usqp=CAU" alt=""></div>
+           <figcaption><strong>......</strong> <em>Bangalore</em></figcaption>
+            </figure>
+          </li>
+          <li class="one_quarter">
+            <figure><div class="zoom"><img src="https://res.cloudinary.com/tf-lab/image/upload/w_600,h_337,c_fill,g_auto:subject,q_auto,f_auto/restaurant/fff53ca7-d760-4854-8408-2ac6ad275d25/0ed0881e-6416-49a4-ad8b-950e1ebe187e.jpg" alt=""></div>
+              <figcaption><strong>.......</strong> <em>Chennai</em></figcaption>
+            </figure>
+          </li>
+          <li class="one_quarter">
+            <figure><div class="zoom"><img src="https://media-cdn.tripadvisor.com/media/photo-s/12/b8/2a/38/okse-flanke-steak-og.jpg" alt=""></div>
+              <figcaption><strong>C. Doe</strong> <em>Job Title Here</em></figcaption>
+            </figure>
+          </li>
+          <li class="one_quarter">
+            <figure><div class="zoom"><img src="https://www.straight.com/files/v3/styles/gs_standard/public/images/18/03/gp_viruouspie.jpg?itok=uPk86Oj5" alt=""></div>
+              <figcaption><strong>D. Doe</strong> <em>Job Title Here</em></figcaption>
+            </figure>
+          </li>
+          <li class="one_quarter">
+            <figure><div class="imgover"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8nQ4UgLqa7BJbqhi8p_dZ5D-iCmxEa_RHoQ&usqp=CAU" alt=""></div>
+              <figcaption><strong>D. Doe</strong> <em>Job Title Here</em></figcaption>
+            </figure>
+          </li>
+          <!-- <li class="one_quarter">
+            <figure><a class="imgover" href="#"><img src="images/demo/300x300.png" alt=""></a>
+              <figcaption><strong>D. Doe</strong> <em>Job Title Here</em></figcaption>
+            </figure>
+          </li> -->
+        </ul>
+        <!-- ################################################################################################ -->
+      </div>
+    </div>
+    
+    <div class="clear"></div>
+  </main>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="bgded overlay" style="background-color:white;">
+  <section id="splitfifty" class="hoc container clear">
+    <div class="sectiontitle">
+      <p class="nospace font-xs">Know Some</p>
+      <p class="heading underline font-x2">Pizza Facts</p>
+    </div>
+    <div class="bgded clear" style="background-image:url('http://www.pizzafacts.net/images/pizzafacts/pizza-make-oven.jpg');"> 
+      <!-- ################################################################################################ -->
+      <article>
+        <h6 class="heading font-x2">"A pizza is a round, open pie made with yeast dough and topped with tomato sauce, cheese, and a variety of other ingredients as toppings"</h6>
+        <p>Throughout the history of human civilization meals of flatbreads or rounds of dough with various toppings were common and used consistently. People of ancient Greece, Persia and Rome used this kind of sustenance for centuries, until meal that we call today pizza found its home in the Naples area in Italy. During the period of Middle Ages, cooks from that city managed to improve the process of pizza creation, adding new ingredients and toppings with the goal to make best dish possible. After the arrival of tomato from the New World, the most important ingredient was present and pizza started slowly to spread across the world.</p>
+        <!-- <footer>Fermentum felis</footer> -->
+      </article>
+      <!-- ################################################################################################ -->
+    </div>
+  </section>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row2">
+  <div class="hoc container clear"> 
+    <!-- ################################################################################################ -->
+    <div class="sectiontitle">
+      <p class="nospace font-xs">Take A Look Into</p>
+      <p class="heading underline font-x2">Pizza Gallery</p>
+    </div>
+    <ul class="nospace group team">
+      <li class="one_quarter first">
+        <figure><a class="imgover" href="#"><img src="https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/216054.jpg" alt=""></a>
+          <figcaption><strong>A. Doe</strong> <em>Job Title Here</em></figcaption>
+        </figure>
+      </li>
+      <li class="one_quarter">
+        <figure><a class="imgover" href="#"><img src="https://static.toiimg.com/photo/53110049.cms" alt=""></a>
+          <figcaption><strong>B. Doe</strong> <em>Job Title Here</em></figcaption>
+        </figure>
+      </li>
+      <li class="one_quarter">
+        <figure><a class="imgover" href="#"><img src="https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/216054.jpg" alt=""></a>
+          <figcaption><strong>C. Doe</strong> <em>Job Title Here</em></figcaption>
+        </figure>
+      </li>
+      <li class="one_quarter">
+        <figure><a class="imgover" href="#"><img src="https://www.tasteofhome.com/wp-content/uploads/2018/01/Pizza-from-Scratch_EXPS_FT20_8621_F_0505_1_home-1.jpg?fit=696,1024" alt=""></a>
+          <figcaption><strong>D. Doe</strong> <em>Job Title Here</em></figcaption>
+        </figure>
+      </li>
+    </ul>
+    <!-- ################################################################################################ -->
+  </div>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row3">
+  <section class="hoc container clear"> 
+    <!-- ################################################################################################ -->
+    <div class="sectiontitle">
+      <p class="nospace font-xs">Our Service</p>
+      <p class="heading underline font-x2">We Serve the hightest Quality of Taste</p>
+    </div>
+    <ul id="stats" class="nospace group">
+      <li><i class="fab fa-sticker-mule"></i>
+        <!-- <p><a href="#">123</a></p> -->
+       <div>Pizza rich with minerals and nutrients</div>
+      </li>
+      <li><i class="fab fa-pied-piper-alt"></i>
+        <!-- <p><a href="#">1234</a></p> -->
+        <div>Ingredients are brought from the farmers directly</div>
+      </li>
+      <li><i class="fas fa-globe"></i>
+        <!-- <p><a href="#">12345</a></p> -->
+        <div>Have branches World Wide</div>
+      </li>
+      <li><i class="fas fa-ribbon"></i>
+        <!-- <p><a href="#">6789</a></p> -->
+        <div>We Trust You.</div>
+      </li>
+    </ul>
+    <!-- ################################################################################################ -->
+  </section>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper bgded" style="background-image:url(https://image.shutterstock.com/image-photo/brazilian-pizza-tomato-cream-cheese-260nw-1458249023.jpg);">
+  <section id="testimonials" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <div class="one_half overlay">
+      <ul class="nospace">
+        <li>
+          <blockquote>You Better Cut The Pizza Into Four Pieces, I'm Not Hungry Enough To Eat Six.</blockquote>
+          <figure class="clear"><img class="circle" src="https://www.simplyrecipes.com/thmb/U2TZfTi9aWVC_tZ4uqWltnICaXI=/3376x2532/smart/filters:no_upscale()/Simply-Recipes-Homemade-Pizza-LEAD-1-3964903118d1494cad90e7602c538cbb.jpg" alt="">
+            <figcaption>
+              <h6 class="heading">Yogi Berra</h6>
+              <em>BaseBall Catcher</em>
+            </figcaption>
+          </figure>
+        </li>
+        
+        <!-- <li>
+          <footer><a class="btn inverse" href="#">View More</a></footer>
+        </li> -->
+      </ul>
+    </div>
+    <!-- ################################################################################################ -->
+  </section>
+</div>
+
+<div class="bgded overlay row4" ">
+  <footer id="footer" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <div class="center btmspace-50">
+      <h6 class="heading">Pizzateria</h6>
+      <ul class="faico clear">
+        <li><a class="faicon-dribble" href="#"><i class="fab fa-dribbble"></i></a></li>
+        <li><a class="faicon-facebook" href="#"><i class="fab fa-facebook"></i></a></li>
+        <li><a class="faicon-google-plus" href="#"><i class="fab fa-google-plus-g"></i></a></li>
+        <li><a class="faicon-linkedin" href="#"><i class="fab fa-linkedin"></i></a></li>
+        <li><a class="faicon-twitter" href="#"><i class="fab fa-twitter"></i></a></li>
+        <li><a class="faicon-vk" href="#"><i class="fab fa-vk"></i></a></li>
+      </ul>
+      <p class="nospace">Follow Us.</p>
+    </div>
+    <!-- ################################################################################################ -->
+    <hr class="btmspace-50">
+    <!-- ################################################################################################ -->
+    <div class="group btmspace-50">
+      <div class="one_quarter first">
+        <h6 class="heading">Menu</h6>
+        <!-- <p class="nospace btmspace-15">Mi etiam ac enim quis risus hendrerit ullamcorper nam faucibus lectus eget.</p> -->
+        <form method="post" action="#">
+          <fieldset>
+            <!-- <legend>Newsletter:</legend>
+            <input class="btmspace-15" type="text" value="" placeholder="Name">
+            <input class="btmspace-15" type="text" value="" placeholder="Email">
+            <button type="submit" value="submit">Submit</button> -->
+            <p>Veg Pizza</p>
+            <p>Non-Veg Pizza</p>
+            <p>Pizza Mania</p>
+            <p>Burger Pizza</p>
+          </fieldset>
+        </form>
+      </div>
+      <div class="one_quarter">
+        <h6 class="heading">Our Policies</h6>
+        <ul class="nospace linklist">
+          <li>
+            <article>
+              <a>Terms and Conditions</a>
+              <!-- <p class="nospace btmspace-10"><a href="#">Mauris nam odio dui vestibulum a molestie ac pulvinar a tellus donec nisi dui.</a></p> -->
+              <!-- <time class="block font-xs" datetime="2045-04-06">Friday, 6<sup>th</sup> April 2045</time> -->
+            </article>
+          </li>
+          <!-- <li>
+            <article>
+              <p></p>
+              <!-- <p class="nospace btmspace-10"><a href="#">Mattis ipsum ut leo ut elementum odio sed tellus quisque malesuada bibendum.</a></p>
+              <time class="block font-xs" datetime="2045-04-05">Thursday, 5<sup>th</sup> April 2045</time> -->
+            <!-- </article>
+          </li> -->
+        </ul>
+      </div>
+      <div class="one_quarter">
+        <h6 class="heading">Order Pizza In</h6>
+        <ul class="nospace linklist">
+          <!-- <li><a href="#">Amet blandit non quam quisque</a></li>
+          <li><a href="#">Cursus faucibus nulla in mauris</a></li>
+          <li><a href="#">Libero interdum quis molestie</a></li>
+          <li><a href="#">Ut convallis non felis mauris</a></li>
+          <li><a href="#">Volutpat consequat nibh aenean</a></li> -->
+          <li>Bangalore</li>
+          <li>Chennai</li>
+          <li>New Delhi</li>
+          <li>Gurgaon</li>
+          <li>Hyderabad</li>
+          <li>Pune</li>
+          <li>Kolkata</li>
+        </ul>
+      </div>
+      <div class="one_quarter">
+        <h6 class="heading">Order Now!</h6>
+        <ul class="nospace clear latestimg">
+          <li><a class="imgover" href="#" ><img src="https://i.pinimg.com/originals/ce/4d/ed/ce4ded54429754ff6b01605577c9e586.jpg"></a></li>
+          <li><a class="imgover" href="#"><img src="https://i.pinimg.com/originals/ce/4d/ed/ce4ded54429754ff6b01605577c9e586.jpg" alt=""></a></li>
+          <li><a class="imgover" href="#"><img src="https://5.imimg.com/data5/XA/VG/GLADMIN-69655639/garlic-lemon-chicken-pizza-500x500.png" alt=""></a></li>
+          <li><a class="imgover" href="#"><img src="http://cdn.shopify.com/s/files/1/0136/8522/7574/products/rowdyz-small-pizza-size-8-13794442969142_grande.jpg?v=1576743305" alt=""></a></li>
+          <li><a class="imgover" href="#"><img src="https://5.imimg.com/data5/XA/VG/GLADMIN-69655639/garlic-lemon-chicken-pizza-500x500.png" alt=""></a></li>
+          <li><a class="imgover" href="#"><img src="https://5.imimg.com/data5/RU/YY/GLADMIN-69655639/1-500x500.png" alt=""></a></li>
+          <li><a class="imgover" href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcYI7gYpp2jP8NZmTrsZOm4ZL4IZ8yZAGYew&usqp=CAU" alt=""></a></li>
+          <li><a class="imgover" href="#"><img src="https://i.pinimg.com/originals/ce/4d/ed/ce4ded54429754ff6b01605577c9e586.jpg" alt=""></a></li>
+          <li><a class="imgover" href="#"><img src="http://cdn.shopify.com/s/files/1/0136/8522/7574/products/rowdyz-small-pizza-size-8-13794442969142_grande.jpg?v=1576743305" alt=""></a></li>
+        </ul>
+      </div>
+      <!-- ################################################################################################ -->
+    </div>
+    <div id="ctdetails" class="clear">
+      <ul class="nospace clear">
+        <li class="one_quarter first">
+          <div class="block clear"><a href="#"><i class="fas fa-phone"></i></a> <span><strong>Give us a call:</strong> +91 9999999999</span></div>
+        </li>
+        <li class="one_quarter">
+          <div class="block clear"><a href="#"><i class="fas fa-envelope"></i></a> <span><strong>Send us a mail:</strong> pizza_support@domain.com</span></div>
+        </li>
+        <li class="one_quarter">
+          <div class="block clear"><a href="#"><i class="fas fa-clock"></i></a> <span><strong> Monday - Saturday:</strong> 08.00am - 18.00pm</span></div>
+        </li>
+        <!-- <li class="one_quarter">
+          <div class="block clear"><a href="#"><i class="fas fa-map-marker-alt"></i></a> <span><strong>Come visit us:</strong> Directions to <a href="#">our location</a></span></div>
+        </li> -->
+      </ul>
+    </div>
+    <!-- ################################################################################################ -->
+  </footer>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- <div class="wrapper row5">
+  <div id="copyright" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <!-- <p class="fl_left">Copyright &copy; 2018 - All Rights Reserved - <a href="#">Domain Name</a></p>
+    <p class="fl_right">Template by <a target="_blank" href="https://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+    <!-- ################################################################################################ -->
+  <!-- </div>
+</div> --> 
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>
+<!-- JAVASCRIPTS -->
+<script src="layout/scripts/jquery.min.js"></script>
+<script src="layout/scripts/jquery.backtotop.js"></script>
+<script src="layout/scripts/jquery.mobilemenu.js"></script>
+</body>
+</html>

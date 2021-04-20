@@ -18,7 +18,7 @@ import com.backend.service.ItemService;
 
 @RestController
 @RequestMapping("items")
-@CrossOrigin({"http://localhost:4209"}) 
+@CrossOrigin({"http://localhost:4200"}) 
 public class ItemController {
 	
 	@Autowired

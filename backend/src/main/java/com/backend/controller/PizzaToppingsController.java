@@ -18,7 +18,7 @@ import com.backend.model.PizzaToppings;
 
 @RestController
 @RequestMapping("toppings")
-@CrossOrigin({ "http://localhost:4209" })
+@CrossOrigin({ "http://localhost:4200" })
 public class PizzaToppingsController {
 
 	@Autowired
