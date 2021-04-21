@@ -31,6 +31,9 @@ export class ItemService {
   findItemById(id){
     return this.http.get(`${this.host}/items/${id}`);
   }
+  findItemByCategory(id){
+    return this.http.get(`${this.host}/items/cat/${id}`);
+  }
   saveItem(item){
     return this.http.post(`${this.host}/items`, item);
   }

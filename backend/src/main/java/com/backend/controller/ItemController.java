@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.backend.model.Category;
 import com.backend.model.Item;
 import com.backend.service.ItemService;
 
@@ -34,6 +35,11 @@ public class ItemController {
 	@GetMapping("")
 	public List<Item> findItems(){
 		return itemService.findItems();
+	}
+	
+	@GetMapping("/cat/{id}")
+	public List<Object> findItemsByCategory(@PathVariable int id){
+		return itemService.findItemsByCategory(id);
 	}
 	
 	@PostMapping("")

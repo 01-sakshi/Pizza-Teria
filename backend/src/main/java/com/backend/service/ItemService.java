@@ -8,7 +8,11 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.backend.dao.CategoryDao;
+//import com.backend.dao.CategoryDao;
 import com.backend.dao.ItemDao;
+import com.backend.model.Category;
+//import com.backend.model.Category;
 import com.backend.model.Item;
 
 @Service
@@ -16,6 +20,18 @@ public class ItemService {
 
 	@Autowired
 	ItemDao itemDao;
+	
+	@Autowired
+	CategoryDao catDao;
+	
+//	public Category findItemByCategory(int id) {
+//		Optional<Category> optional = CategoryDao.findById(id);
+//		Category cat = optional.orElse(null);
+//
+//		System.out.println(cat);
+//
+//		return cat;
+//	}
 
 	public Item findItemById(int id) {
 
@@ -37,6 +53,18 @@ public class ItemService {
 		}
 
 		return items;
+	}
+
+	public List<Object> findItemsByCategory(int a) {
+		List<Object> cat = catDao.findAllItems(a);
+//		Iterator<Item> iterator = iterable.iterator();
+//		List<Item> cat = new ArrayList<Item>();
+
+//		while (iterator.hasNext()) {
+//			cat.add(iterator.next());
+//		}
+
+		return cat;
 	}
 
 	public int createItem(Item item) {
