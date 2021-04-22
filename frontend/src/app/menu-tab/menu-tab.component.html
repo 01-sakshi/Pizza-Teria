@@ -1,25 +1,20 @@
 <div class="header">
   <h2>Menu Page</h2>
 </div>
-<div class="category_container" *ngFor="let category of categoryService.categories">
-  <button type="button" class="btn btn-primary"  [(ngModel)]="category" (click)="getAllItemsByCategory()">
-    {{ category.name }}
+<div class="category_container">
+  <button type="button" class="btn btn-primary" *ngFor="let category of categoryService.categories"
+    (click)="getAllItemsByCategory(category.name)">
+    {{ category.name | titlecase }}
   </button>
 </div>
-
+<!-- let item of itemService.items -->
 <div class="card" *ngFor="let item of itemService.items">
-  <img
-    class="card-img-top"
-    [src]="item.imageUrl"
-    height="200px"
-    width="100%"
-    alt="Card image cap"
-  />
+  <img class="card-img-top" [src]="item.imageUrl" height="200px" width="100%" alt="Card image cap" />
   <div class="card-body">
     <h5 class="card-title">{{ item.name }}</h5>
     <h6>Rs. {{ item.price }}</h6>
-   <!-- <a  routerLink="view-product" class="btn btn-success">View Details</a> -->
-   <a  (click)="onProductClick(item.id)" class="btn btn-warning">View Details</a>
+    <!-- <a  routerLink="view-product" class="btn btn-success">View Details</a> -->
+    <a (click)="onProductClick(item.id)" class="btn btn-warning">View Details</a>
   </div>
 </div>
 

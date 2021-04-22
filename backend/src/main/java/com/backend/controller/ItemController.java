@@ -1,6 +1,7 @@
 package com.backend.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -38,8 +39,17 @@ public class ItemController {
 	}
 	
 	@GetMapping("/cat/{id}")
-	public List<Object> findItemsByCategory(@PathVariable int id){
+	public List<Item> findItemsByCategory(@PathVariable int id){
 		return itemService.findItemsByCategory(id);
+	}
+	
+	@GetMapping("/cate")
+	public List<Category> findAllCategories(){
+		return itemService.findCategories();
+	}
+	@GetMapping("/cate/{id}")
+	public String findCategoriesById(@PathVariable int id){
+		return itemService.findCategoriesById(id);
 	}
 	
 	@PostMapping("")

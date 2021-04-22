@@ -21,11 +21,15 @@ export class CategoryService {
     return this.data;
   }
 
-  private host:string = "http://localhost:8080/items/cat";
+  private host:string = "http://localhost:8080";
 
   constructor(private http: HttpClient) { }
 
-  findItemByCategory(id){
-    return this.http.get(`${this.host}/${id}`);
+  getCategory(){
+    return this.http.get(`${this.host}/items/cate`);
+  }
+
+  findItemByCategory(id:number){
+    return this.http.get(`${this.host}/items/cat/${id}`);
   }
 }

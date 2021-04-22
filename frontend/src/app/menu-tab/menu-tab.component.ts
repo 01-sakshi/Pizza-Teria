@@ -12,6 +12,7 @@ import { CategoryService } from '../service/category.service';
 export class MenuTabComponent implements OnInit {
   [x: string]: any;
   selectedCategory: string = 'PIZZA';
+  n:number=0;
   // categories: string[] = ['PIZZA', 'BURGER'];
 
   onProductClick(id) {
@@ -28,20 +29,23 @@ export class MenuTabComponent implements OnInit {
 
   constructor(public itemService:ItemService, private router: Router, public cartService: CartService, public categoryService: CategoryService) {}
   ngOnInit() {
-      this.getAllItemsByCategory();
-      this.getAllItems()
+      // this.getAllItemsByCategory();
+      this.getAllItems();
+      this.getAllCategories();
   }
-  getAllItemsByCategory() {
-    if(this.category=="PIZZA"){
+  getAllItemsByCategory(id:String) {
+    console.log(id);
+    // console.log(this.cat);
+    if(id==="pizza"){
       this.categoryService.findItemByCategory(1).subscribe((res: any) => {
         console.log(res);
-      this.categoryService.categories = res;
+      // this.itemService.items = res;
     });
     }
-    else{
+    else if(id==="Burger"){
       this.categoryService.findItemByCategory(2).subscribe((res: any) => {
         console.log(res);
-      this.categoryService.categories = res;
+      // this.categoryService.categories = res;
     });
     }
   }
@@ -49,6 +53,13 @@ export class MenuTabComponent implements OnInit {
     this.itemService.getItems().subscribe((res: any) => {
       console.log(res);
       this.itemService.items = res;
+    });
+  }
+
+  getAllCategories() {
+    this.categoryService.getCategory().subscribe((res: any) => {
+      console.log(res);
+      this.categoryService.categories = res;
     });
   }
 }

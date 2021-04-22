@@ -55,16 +55,18 @@ public class ItemService {
 		return items;
 	}
 
-	public List<Object> findItemsByCategory(int a) {
+	public List<Item> findItemsByCategory(int a) {
 		List<Object> cat = catDao.findAllItems(a);
 //		Iterator<Item> iterator = iterable.iterator();
-//		List<Item> cat = new ArrayList<Item>();
+		List<Item> cat1 = new ArrayList<Item>();
 
 //		while (iterator.hasNext()) {
 //			cat.add(iterator.next());
-//		}
-
-		return cat;
+//		}{	
+		for(Object a1:cat) {
+			cat1=(List<Item>)a1;
+		}
+		return cat1;
 	}
 
 	public int createItem(Item item) {
@@ -82,5 +84,20 @@ public class ItemService {
 
 	public void deleteItem(int id) {
 		itemDao.deleteById(id);
+	}
+
+	public List<Category> findCategories() {
+		List<Category> cate=catDao.findAll();
+		return cate;
+	}
+
+//	public Optional<Category> findCategoriesById(int id) {
+//		Optional<Category> cate=catDao.findById(id);
+//		return cate;
+//	}
+
+	public String findCategoriesById(int id) {
+		String cate=catDao.findNameById(id);
+		return cate;
 	}
 }
