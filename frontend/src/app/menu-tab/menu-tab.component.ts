@@ -39,13 +39,13 @@ export class MenuTabComponent implements OnInit {
     if(id==="pizza"){
       this.categoryService.findItemByCategory(1).subscribe((res: any) => {
         console.log(res);
-      // this.itemService.items = res;
+      this.itemService.items = res;
     });
     }
     else if(id==="Burger"){
       this.categoryService.findItemByCategory(2).subscribe((res: any) => {
         console.log(res);
-      // this.categoryService.categories = res;
+        this.itemService.items = res;
     });
     }
   }

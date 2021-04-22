@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.backend.dao.CategoryDao;
+import com.backend.dao.CategoryDao2;
 //import com.backend.dao.CategoryDao;
 import com.backend.dao.ItemDao;
 import com.backend.model.Category;
@@ -23,6 +24,10 @@ public class ItemService {
 	
 	@Autowired
 	CategoryDao catDao;
+	
+	@Autowired
+	CategoryDao2 catDao2;
+	
 	
 //	public Category findItemByCategory(int id) {
 //		Optional<Category> optional = CategoryDao.findById(id);
@@ -56,17 +61,17 @@ public class ItemService {
 	}
 
 	public List<Item> findItemsByCategory(int a) {
-		List<Object> cat = catDao.findAllItems(a);
+		List<Item> cat = catDao.findAllItems(a);
 //		Iterator<Item> iterator = iterable.iterator();
-		List<Item> cat1 = new ArrayList<Item>();
+//		List<Item> cat1 = new ArrayList<Item>();
 
 //		while (iterator.hasNext()) {
 //			cat.add(iterator.next());
 //		}{	
-		for(Object a1:cat) {
-			cat1=(List<Item>)a1;
-		}
-		return cat1;
+//		for(Object a1:cat) {
+//			cat1=(List<Item>)a1;
+//		}
+		return cat;
 	}
 
 	public int createItem(Item item) {
@@ -87,7 +92,7 @@ public class ItemService {
 	}
 
 	public List<Category> findCategories() {
-		List<Category> cate=catDao.findAll();
+		List<Category> cate=catDao2.findAll();
 		return cate;
 	}
 
