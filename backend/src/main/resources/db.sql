@@ -14,7 +14,7 @@ primary key(id), FOREIGN KEY (location_id) REFERENCES location(id));
 
 CREATE TABLE category ( id INT(10) NOT NULL, name varchar(30), primary key(id));
 
-
+-- select * from Item where Item.category_id = 2;
 CREATE TABLE item(id INT(10) NOT NULL, category varchar(30), category_id INT(10),
 image_Url varchar(1000), name VARCHAR(30),
 price INT(10), quantity int(5),restaurant_id INT(10),
@@ -40,9 +40,9 @@ insert into pizzaToppings values(3,"ExtraCheese",70);
 
 insert into restaurant values(1, 1,'PizzaHut','Punjagutta' );
 insert into restaurant values(2,  1,'Dominos','HiTechCity');
--- insert into restaurant values(3, 2,'Flechazo', 'Manyata');
--- insert into restaurant values(4, 2,'Dominos', 'Whitefield');
--- insert into restaurant values(5, 2,'Flechazo','AkshayaNagar');
+insert into restaurant values(3, 2,'Flechazo', 'Manyata');
+insert into restaurant values(4, 2,'Dominos', 'Whitefield');
+insert into restaurant values(5, 2,'Flechazo','AkshayaNagar');
 -- insert into restaurant values(6, 3,'PizzaHome', 'South Extension');
 -- insert into restaurant values(7, 3,'Flechazo', 'Lajpat Ngar');
 -- insert into restaurant values(8, 3,'Dominos', 'Mayur Vihar');
@@ -67,6 +67,13 @@ insert into item values (4, "pizza", 1, "https://encrypted-tbn0.gstatic.com/imag
 
  insert into item values (7, "pizza", 1, "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQIGsLK0SsZ7lG0JcJI5oDEu3yfim78gfTwAqJkGixwo19TIkEi", "Veggy cheesy smoky pizza", 180, 3, 1);
 
+insert into category values(2,"Burger");
+insert into item values (8, "Burger", 2, "https://media1.s-nbcnews.com/i/newscms/2019_21/2870431/190524-classic-american-cheeseburger-ew-207p_d9270c5c545b30ea094084c7f2342eb4.jpg", "Veg Tikki Burger", 180, 3, 1);
+
+insert into item values (9, "Burger", 2, "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQIGsLK0SsZ7lG0JcJI5oDEu3yfim78gfTwAqJkGixwo19TIkEi", "Double Cheese", 180, 3, 1);
+
+insert into item values (10, "Burger", 2, "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQIGsLK0SsZ7lG0JcJI5oDEu3yfim78gfTwAqJkGixwo19TIkEi", "Chicken Burger", 180, 3, 1);
+
  insert into pizza_size values (1, 20, "small");
 
  insert into pizza_size values (2, 40, "medium");
@@ -88,3 +95,12 @@ insert into pizza_toppings values (5, 40, "tomato");
  insert into pizza_toppings values (7, 20, "chillies");
 
  insert into pizza_toppings values (8, 35, "onion");
+
+select * from restaurant;
+describe item;
+SELECT * FROM item where location_id = 2;
+insert into item values (11, "Burger", 2, "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQIGsLK0SsZ7lG0JcJI5oDEu3yfim78gfTwAqJkGixwo19TIkEi", "Chicken2 Burger", 180, 3, 2);
+insert into item values (12, "Burger", 2, "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQIGsLK0SsZ7lG0JcJI5oDEu3yfim78gfTwAqJkGixwo19TIkEi", "Chicken3 Burger", 180, 3, 3);
+insert into item values (13, "Burger", 2, "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQIGsLK0SsZ7lG0JcJI5oDEu3yfim78gfTwAqJkGixwo19TIkEi", "Chicken4 Burger", 180, 3, 4);
+insert into item values (14, "Burger", 2, "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQIGsLK0SsZ7lG0JcJI5oDEu3yfim78gfTwAqJkGixwo19TIkEi", "Chicken5 Burger", 180, 3, 5);
+Select * from Item where restaurant_id = 2;

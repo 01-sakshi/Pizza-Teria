@@ -27,16 +27,6 @@ public class ItemService {
 	
 	@Autowired
 	CategoryDao2 catDao2;
-	
-	
-//	public Category findItemByCategory(int id) {
-//		Optional<Category> optional = CategoryDao.findById(id);
-//		Category cat = optional.orElse(null);
-//
-//		System.out.println(cat);
-//
-//		return cat;
-//	}
 
 	public Item findItemById(int id) {
 
@@ -62,15 +52,6 @@ public class ItemService {
 
 	public List<Item> findItemsByCategory(int a) {
 		List<Item> cat = catDao.findAllItems(a);
-//		Iterator<Item> iterator = iterable.iterator();
-//		List<Item> cat1 = new ArrayList<Item>();
-
-//		while (iterator.hasNext()) {
-//			cat.add(iterator.next());
-//		}{	
-//		for(Object a1:cat) {
-//			cat1=(List<Item>)a1;
-//		}
 		return cat;
 	}
 
@@ -95,11 +76,6 @@ public class ItemService {
 		List<Category> cate=catDao2.findAll();
 		return cate;
 	}
-
-//	public Optional<Category> findCategoriesById(int id) {
-//		Optional<Category> cate=catDao.findById(id);
-//		return cate;
-//	}
 
 	public String findCategoriesById(int id) {
 		String cate=catDao.findNameById(id);

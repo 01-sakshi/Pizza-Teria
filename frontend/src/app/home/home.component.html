@@ -1,102 +1,44 @@
-<!-- <div class="container">
-  <div class="col">
-    <a [routerLink]="['register']">Register</a>
-    <a [routerLink]="['login']">Login</a>
-  </div>
-
-  <p>select location and restaurant:)</p>
-  <select
-    name="restaurant"
-    class="rounded-inputs20 select-select col-md-3"
-    (change)="onChange($event.target.value)"
-  >
-    <option *ngFor="let location of locations" [value]="location.id">
-      {{ location.name }}
-    </option>
-  </select>
-
-  <select
-    id="sel1"
-    name="location"
-    class="rounded-inputs20 select-select col-md-3"
-  >
-    <option *ngFor="let restaurant of restaurants" [value]="restaurant">
-      {{ restaurant }}
-    </option>
-  </select>
-  <a routerLink="/restaurants"
-    ><button class="btn btn-success">Search</button></a
-  >
-</div> -->
 <!DOCTYPE html>
-
 <html lang="">
-<!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
 <head>
 <title>PizzaTeria</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<!-- <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all"> -->
 </head>
 <body id="top">
-<div class="bgded overlay" style="background-image:url('images/demo/backgrounds/01.png');"> 
-  <!-- ################################################################################################ -->
+<div class="bgded overlay" style="background-color: rgb(84, 101, 116);"> 
   <div class="wrapper row0">
     <div id="topbar" class="hoc clear">
       <div class="fl_left"> 
-        <!-- ################################################################################################ -->
-        <ul class="nospace">
-          <li><i class="fas fa-phone rgtspace-5"></i> +91 9999999999</li>
-          <li><i class="far fa-envelope rgtspace-5"></i> pizza_info@domain.com</li>
+            <ul class="nospace">
+          <li>+91 9999999999</li>
+          <li>pizza_info@domain.com</li>
         </ul>
-        <!-- ################################################################################################ -->
-      </div>
+        </div>
       <div class="fl_right"> 
-        <!-- ################################################################################################ -->
-        <ul class="nospace">
-          <!-- <li><a href="index.html"><i class="fas fa-home"></i></a></li> -->
-          <!-- <li><a href="#" title="Help Centre"><i class="far fa-life-ring"></i></a></li> -->
+           <ul class="nospace">
           <li><a href="http://localhost:4200/login" title="Login">Login</a></li>
           <li><a href="http://localhost:4200/register" title="Sign Up/register">Register</a></li>
-          <!-- <li id="searchform">
-            <!-- <div>
-              <form action="#" method="post">
-                <fieldset>
-                  <legend>Quick Search:</legend>
-                  <input type="text" placeholder="Enter search term&hellip;">
-                  <button type="submit"><i class="fas fa-search"></i></button>
-                </fieldset>
-              </form>
-            </div> -->
-          <!-- </li> --> 
         </ul>
         <!-- ################################################################################################ -->
       </div>
     </div>
   </div>
-  <!-- ################################################################################################ -->
-  <!-- ################################################################################################ -->
-  <!-- ################################################################################################ -->
-  <div class="head">
+   <div class="head">
   <div class="wrapper row1">
     <header id="header" class="hoc clear">
       <div id="logo" class="fl_left"> 
         
         <!-- ################################################################################################ -->
       <b><h1>PizzaTeria</h1></b>
-      <p>Pizza is not a 'trend' it's a way of life</p>
-      <!-- <div class="col">
-        <a [routerLink]="['register']">Register</a>
-        <a [routerLink]="['login']">Login</a>
-      <!-- </div> -->
-      <!-- <p>select location and restaurant:)</p> --> 
        <div  style="display:block;">
      <select
         name="location"
        class="o"
+       [(ngModel)]="location"
         (change)="onChange($event.target.value)"
       required> <optgroup label="SELECT LOCATION">
-        <option *ngFor="let location of locations" class="o" [value]="location.id">
+        <option *ngFor="let location of locService.locations" class="o" value={{location.id}}>
           {{ location.name }}
         </option>
       </optgroup>
@@ -105,22 +47,18 @@
         id="sel1"
         name="restaurant"
         class="o"
+        (change)="getItemsByRestaurant($event.target.value)"
       required><optgroup label="SELECT RESTAURANT">
-        <option *ngFor="let restaurant of restaurants" class="o" [value]="restaurant">
-          {{ restaurant }}
+        <option *ngFor="let restaurant of resService.restaurants" class="o" value={{restaurant.id}}>
+          {{ restaurant.name }}
         </option>
       </select>
-      <a routerLink="/login"
-        ><button class="btn btn-success">Search</button></a
-      >
+      <a routerLink="/login"><button class="btn btn-success">Search</button></a>
     </div> 
     </div> 
     </header>
   </div>
-  <!-- ################################################################################################ -->
-  <!-- ################################################################################################ -->
-  <!-- ################################################################################################ -->
-  <div id="pageintro" class="hoc clear"> 
+   <div id="pageintro" class="hoc clear"> 
     <!-- ################################################################################################ -->
     <article>
 
@@ -128,22 +66,11 @@
       <p>Pizza has always been a universally favorite snack, but despite earning a consistently top spot in people’s go-to list, it somehow finds itself lumped with greasy fast foods. Media often gives the pizza a bad light, especially for health-conscious eaters who are mindful of their calorie intake.</p>
 <p>Diet fads and nutritionists say that eating good pizza should be done in moderation, but science finds that having another slice is healthier for you more than you realize. </p>
       
-
-<!-- <footer>
-        <ul class="nospace inline pushright">
-          <li><a class="btn" href="#">Pharetra etiam</a></li>
-          <li><a class="btn inverse" href="#">Sagittis massa</a></li>
-        </ul>
-      </footer> -->
     </article>
     <!-- ################################################################################################ -->
   </div>
   <!-- ################################################################################################ -->
 </div>
-<!-- End Top Background Image Wrapper -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
 <div class="wrapper row3">
   <main class="hoc container clear"> 
     <!-- main body -->
@@ -151,7 +78,7 @@
     <section id="introblocks">
       <ul class="nospace group btmspace-80">
         <li class="one_third first">
-          <figure><div class="zoom"><img src="./../assets/images/4x_-_No_min_order_x0bxuf.jpg"></div>
+          <figure><div class="zoom"><img src="./../assets/images/order.jpeg"></div>
             <figcaption>
               <h6 class="heading">No Minimum Order</h6>
               <p>Order in for yourself or for the group, with no restrictions on order value</p>
@@ -159,7 +86,7 @@
           </figure>
         </li>
         <li class="one_third">
-          <figure><div class="zoom"><img src="./../assets/images/track1.jpg" alt=""></div><br>
+          <figure><div class="zoom"><img src="./../assets/images/track1.jpeg" alt=""></div><br>
             <figcaption>
               <h6 class="heading">Live Order Tracking</h6>
               <p>Know where your order is at all times, from the restaurant to your doorstep.</p>
@@ -167,7 +94,7 @@
           </figure>
         </li>
         <li class="one_third">
-          <figure><div class="zoom"><img src="./../assets/images/taste1.jpg" alt=""></div><br><br>
+          <figure><div class="zoom"><img src="./../assets/images/taste1.jpeg" alt=""></div><br><br>
             <figcaption>
               <h6 class="heading">Fresh Menu</h6>
               <p>We don't deliver food, We deliver taste.</p>
@@ -212,22 +139,13 @@
               <figcaption><strong>D. Doe</strong> <em>Job Title Here</em></figcaption>
             </figure>
           </li>
-          <!-- <li class="one_quarter">
-            <figure><a class="imgover" href="#"><img src="images/demo/300x300.png" alt=""></a>
-              <figcaption><strong>D. Doe</strong> <em>Job Title Here</em></figcaption>
-            </figure>
-          </li> -->
         </ul>
-        <!-- ################################################################################################ -->
-      </div>
+         </div>
     </div>
     
     <div class="clear"></div>
   </main>
 </div>
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
 <div class="bgded overlay" style="background-color:white;">
   <section id="splitfifty" class="hoc container clear">
     <div class="sectiontitle">
@@ -235,7 +153,6 @@
       <p class="heading underline font-x2">Pizza Facts</p>
     </div>
     <div class="bgded clear" style="background-image:url('http://www.pizzafacts.net/images/pizzafacts/pizza-make-oven.jpg');"> 
-      <!-- ################################################################################################ -->
       <article>
         <h6 class="heading font-x2">"A pizza is a round, open pie made with yeast dough and topped with tomato sauce, cheese, and a variety of other ingredients as toppings"</h6>
         <p>Throughout the history of human civilization meals of flatbreads or rounds of dough with various toppings were common and used consistently. People of ancient Greece, Persia and Rome used this kind of sustenance for centuries, until meal that we call today pizza found its home in the Naples area in Italy. During the period of Middle Ages, cooks from that city managed to improve the process of pizza creation, adding new ingredients and toppings with the goal to make best dish possible. After the arrival of tomato from the New World, the most important ingredient was present and pizza started slowly to spread across the world.</p>
@@ -245,9 +162,6 @@
     </div>
   </section>
 </div>
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
 <div class="wrapper row2">
   <div class="hoc container clear"> 
     <!-- ################################################################################################ -->
@@ -255,7 +169,19 @@
       <p class="nospace font-xs">Take A Look Into</p>
       <p class="heading underline font-x2">Pizza Gallery</p>
     </div>
-    <ul class="nospace group team">
+    <!-- <div *ngFor="let item of itemService.items"> -->
+     
+      <div class="row1" *ngFor="let item of itemService.items">
+        <div class="column1">
+      <img class="zoom" [src]="item.imageUrl" height="200px" width="100%" alt="Card image cap" />
+    <p>{{ item.name }}</p>
+    <!-- <p>Rs. {{ item.price }}</p> -->
+   </div>
+</div>
+<!-- </div> -->
+
+
+    <!-- <ul class="nospace group team">
       <li class="one_quarter first">
         <figure><a class="imgover" href="#"><img src="https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/216054.jpg" alt=""></a>
           <figcaption><strong>A. Doe</strong> <em>Job Title Here</em></figcaption>
@@ -276,13 +202,10 @@
           <figcaption><strong>D. Doe</strong> <em>Job Title Here</em></figcaption>
         </figure>
       </li>
-    </ul>
+    </ul> -->
     <!-- ################################################################################################ -->
   </div>
 </div>
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
 <div class="wrapper row3">
   <section class="hoc container clear"> 
     <!-- ################################################################################################ -->
@@ -291,19 +214,19 @@
       <p class="heading underline font-x2">We Serve the hightest Quality of Taste</p>
     </div>
     <ul id="stats" class="nospace group">
-      <li><i class="fab fa-sticker-mule"></i>
+      <li>
         <!-- <p><a href="#">123</a></p> -->
        <div>Pizza rich with minerals and nutrients</div>
       </li>
-      <li><i class="fab fa-pied-piper-alt"></i>
+      <li>
         <!-- <p><a href="#">1234</a></p> -->
         <div>Ingredients are brought from the farmers directly</div>
       </li>
-      <li><i class="fas fa-globe"></i>
+      <li>
         <!-- <p><a href="#">12345</a></p> -->
         <div>Have branches World Wide</div>
       </li>
-      <li><i class="fas fa-ribbon"></i>
+      <li>
         <!-- <p><a href="#">6789</a></p> -->
         <div>We Trust You.</div>
       </li>
@@ -311,9 +234,6 @@
     <!-- ################################################################################################ -->
   </section>
 </div>
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
 <div class="wrapper bgded" style="background-image:url(https://image.shutterstock.com/image-photo/brazilian-pizza-tomato-cream-cheese-260nw-1458249023.jpg);">
   <section id="testimonials" class="hoc clear"> 
     <!-- ################################################################################################ -->
@@ -328,10 +248,6 @@
             </figcaption>
           </figure>
         </li>
-        
-        <!-- <li>
-          <footer><a class="btn inverse" href="#">View More</a></footer>
-        </li> -->
       </ul>
     </div>
     <!-- ################################################################################################ -->
@@ -344,28 +260,18 @@
     <div class="center btmspace-50">
       <h6 class="heading">Pizzateria</h6>
       <ul class="faico clear">
-        <li><a class="faicon-dribble" href="#"><i class="fab fa-dribbble"></i></a></li>
-        <li><a class="faicon-facebook" href="#"><i class="fab fa-facebook"></i></a></li>
-        <li><a class="faicon-google-plus" href="#"><i class="fab fa-google-plus-g"></i></a></li>
-        <li><a class="faicon-linkedin" href="#"><i class="fab fa-linkedin"></i></a></li>
-        <li><a class="faicon-twitter" href="#"><i class="fab fa-twitter"></i></a></li>
-        <li><a class="faicon-vk" href="#"><i class="fab fa-vk"></i></a></li>
+        <li><a class="faicon-dribble"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTipTcfWPy3f58MBQTG-PORm8kJzITEP4AlOA&usqp=CAU"/></a></li>
+        <li><a class="faicon-dribble"><img src="data:image/jpeg;base64,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HImSoqNhnnd1TT75591fide3HzGgY69PWuDFnLBT2FFRtDtQlm7chJ3AavHuW3R5tV9XJ+UTSdU49oF+MgHxGDydlsQUkss8lxKVVZZ/iuL8ud/BHQrcsy1B6ilYWNdYaDcJHA2GlK/9iy2zF5A96u5kLNhsBbLK7rJmghlhaOIEAERs34eUcSupkjJENIzQibba4nFzjvcdpXQVdz3R2FKU90dnuERFGRBERAEREAREQBERAEREAREQBERAFH8s5qU1US5zdF5w0m3HqvYqQIsNJ7SSnVnTlrQbT7iqsp9HE7LmCRsg3OOi719k879yjddkaog/SwSN4lrtHxGvxV8otOiW469LTtdK1RKXB8uB+eLL6rzrsh00xvJAxx32sfEYrlSZh0J1Rub8l7vtut0rFlaaoyX5Rafk/lexUaK2ocwqJpuWvdwc829Vlu0madFESW07bnzi59uWkTbuUsZpEU9K0dyfDn8FNRROebNBcddmgk+AXXyZmrWVB7MDmt16Uo0G+vE9wKuaGBrBZrQBwACyrfp3uRSqaRb6sbeOfIgmb2YpgdpzPY5wILS1ty0gk4aXZvqNy022b1N44w3V4nE+KyIopScndlGpVlN3kERFqRhERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAf/9k="/></a></li>
+        <li><a class="faicon-dribble"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAeFBMVEX///8dofIAnfIAm/ETn/IAnvIAmfHy+v74/P/7/v/h8v0AnPLd8P1buPVFrvSCx/ep2PnB4/uh1Pnp9v5QsvRsvfa13frM6PzD5Pt4wvYhpPKUzvhbtvWe0vk/rPPO6vyNzPh6xfbT7fyBwva13/qczvgAlPFvwPaQpQe1AAAGb0lEQVR4nO2c2WKiSBSGpaqOLJFFFgklgm1nJu//hiNuMZG1Nuie810kNwr81HK2Oq5WCIIgCIIgCIIgCIIgCIIgCIIgCIIgCIIgCIIgCIIgCIIgCIIgfxyOV0fhL9/3izCuN/bcj6MaOw9TTggAYwwA3nhQ5H+TyGRf0bM26wtmAa2OXvdXtq65x5MmCQlYbRCadWh8D3yzzyiDs4d2fQ0AYctcrX3y9q7/yexEyWXqlLBOgc04Vj+02NvSApY6Su7eS5GqWAmR1auvWZFwePp8cgiaN0J2Cu49gMfhU/4qezok8Awtbp+2I/+6YllgYAhDYtGj9EXosL5mpvqNOdkH6/uEprkCBQM4zewikdxFzm9pHJCm3Ppar1AMX1uaXfNwjElJPI4V2NzpaTYzbsIX+LyuB5CQuB03RV/VWgYsxWp1e6WMCktMBnfRDmTXxjhOj/cvLNHvtvO90PhxCTUWuZ346/HYYfjjLezGL8JnGLnfzsmzuPcOcoRPCkkocAG7Epujt/fpeoeU6vRr3Oz5+UDAC46FhhD4tvlyvU/PcZbVE3lIYwffbkyqzdQrcJEhhF+Jt92XhDamUa/Vt6vvt2bXdzuerdAQ8oBzuBl+stcj7UbyOgTHSRfIBC3Fw/CrcIr7aFFI0gl7tyu2kX4BpWbXu20nBGt8RPMh6M487qUkcuvjx05zhRF/7O4WClr7u8BKu2PqlK3rCKxo1ORx278+WmCg05m58bt9EBgt6xHftoVsxR1Smggt9l1bBSPF8AtOZDYamhmI71er9+6tAtbHIY0b8Y2GUb128IHTNwrAw/4tR8zeXwRyAymoK2nfSmKEh31+nLjC4GRK4JDnzACybkdOWKGZ4PdKMmjRgPJDx2QVVggigZoo2bDRZgSCuG225qI7jVGF+SiTdl6R6eGlFuj9EQpXI/0SxoAERbR5NmItjvsSFdYTfEsglPv73ekm02lza5encHzG+kIzlnQNgR9Gu62oX0p05p5ecYSSSWc70l9OW5DCVS4bx05GJsUuRKf/rQtiJJ//TGFYIjXmtNn3TN7IAqAyhQZC3ysezerLzu+GIBWuT4NxYwqTNUAZJ0066GBQoaU/P/NQCM22T9MwOrm1YAVCAKY7h/jFLdHSGHEqbt0mA79NCVw5vQGwNkwa/EIu4SmqcGJ1RIaDcXemgRo8rXgyawevMG5OoGD9T1ah0fOIkpUHIYjYiQFBzMcVZ2Nh1u82Z+cfMGP2/oLgaREZgalRgTMYfTC6DFcyqXlRzGX0b3walliZXYYr2TrnZAxnEi/Ua6MKx1SXVWM0ExXM0kIzLSksxRyT9CLRmAe+nnx0ThGj2gkUYNrcPzHcEqIEk9Xfn9SBiUwNmbNVzT72tGYpwkiHRQ9eRnUnho17bD/ZhJxqHEiRc9bKsd+LlGuTOIc/c2frOI7ruo5j16EuhaycUeCKr3mVNo1XtKPVVQFvBlrVuonPtoKxb51XqoFsToHi7UvjIXM5bDe05xXntoUrT3MgzMBYWbSLCY2SImhuHRmDHegcRCNNzUPkWlei8QMmbez1xcFCrX8aKLWNIl/AHG1wU00SzR0RGsL2tWyoc6Wf2rAzDRKZ9gauSYTqkxl8ZnftJztL8TCaPHoxDrtQmsugho/LjqIuQZlIMrfD3UGecTXrUX+bqDDJzgdKCMjFxFDNHlH0cvr4pyhkzjIYPEkqzlYibmRLsxMtOKFEdoNxnT8IoYZTJWEb/4ARtEOZmhssXqAbc5lIg8xTzh6P8yFXbQN/IRFhB+4ufZPRx6BYrKFvsONK0qGBJfqid+ytL1tgI3wxIf0L3vaTy5YuGMkWuce4dvJ+LLl8TAF8ITM0rx/Wyjt9xMesYpTIV54YKZdiBZPi3/V6zfn5D6VEVTgI1oynSV7YpERxufBsI5YVSri7QGVGhr2Vs9Z4W7EjRZF8M37BbpFG3o24ihNtjFYfc0vp5iOVPCfEgJSLSxh+RybtxBjlxVIMRA9enIrlgQlPo2Xtn93Ux2raryScJyerWn/VZblsYn+sYwNArSxafhrmFbfeZxUhjcxWoezSNMyCIl5u+DCMneyOWVpxoHB25+ByUur8nwB5s3hVFnGeLDJ4mIiTbOo8OvwKP/2GLAz30TbfeH+DNgRBEARBEARBEARBEARBEARBEARBEARBEARBEARBEARBEARB/kf8B/u9Wr7L9Z4NAAAAAElFTkSuQmCC"/></a></li>
       </ul>
       <p class="nospace">Follow Us.</p>
     </div>
-    <!-- ################################################################################################ -->
     <hr class="btmspace-50">
-    <!-- ################################################################################################ -->
     <div class="group btmspace-50">
       <div class="one_quarter first">
         <h6 class="heading">Menu</h6>
-        <!-- <p class="nospace btmspace-15">Mi etiam ac enim quis risus hendrerit ullamcorper nam faucibus lectus eget.</p> -->
-        <form method="post" action="#">
+              <form method="post" action="#">
           <fieldset>
-            <!-- <legend>Newsletter:</legend>
-            <input class="btmspace-15" type="text" value="" placeholder="Name">
-            <input class="btmspace-15" type="text" value="" placeholder="Email">
-            <button type="submit" value="submit">Submit</button> -->
             <p>Veg Pizza</p>
             <p>Non-Veg Pizza</p>
             <p>Pizza Mania</p>
@@ -379,27 +285,13 @@
           <li>
             <article>
               <a>Terms and Conditions</a>
-              <!-- <p class="nospace btmspace-10"><a href="#">Mauris nam odio dui vestibulum a molestie ac pulvinar a tellus donec nisi dui.</a></p> -->
-              <!-- <time class="block font-xs" datetime="2045-04-06">Friday, 6<sup>th</sup> April 2045</time> -->
-            </article>
+              </article>
           </li>
-          <!-- <li>
-            <article>
-              <p></p>
-              <!-- <p class="nospace btmspace-10"><a href="#">Mattis ipsum ut leo ut elementum odio sed tellus quisque malesuada bibendum.</a></p>
-              <time class="block font-xs" datetime="2045-04-05">Thursday, 5<sup>th</sup> April 2045</time> -->
-            <!-- </article>
-          </li> -->
         </ul>
       </div>
       <div class="one_quarter">
         <h6 class="heading">Order Pizza In</h6>
         <ul class="nospace linklist">
-          <!-- <li><a href="#">Amet blandit non quam quisque</a></li>
-          <li><a href="#">Cursus faucibus nulla in mauris</a></li>
-          <li><a href="#">Libero interdum quis molestie</a></li>
-          <li><a href="#">Ut convallis non felis mauris</a></li>
-          <li><a href="#">Volutpat consequat nibh aenean</a></li> -->
           <li>Bangalore</li>
           <li>Chennai</li>
           <li>New Delhi</li>
@@ -428,40 +320,22 @@
     <div id="ctdetails" class="clear">
       <ul class="nospace clear">
         <li class="one_quarter first">
-          <div class="block clear"><a href="#"><i class="fas fa-phone"></i></a> <span><strong>Give us a call:</strong> +91 9999999999</span></div>
+          <div class="block clear"><a href="#"></a> <span><strong>Give us a call:</strong> +91 9999999999</span></div>
         </li>
         <li class="one_quarter">
-          <div class="block clear"><a href="#"><i class="fas fa-envelope"></i></a> <span><strong>Send us a mail:</strong> pizza_support@domain.com</span></div>
+          <div class="block clear"><a href="#"></a> <span><strong>Send us a mail:</strong> pizza_support@domain.com</span></div>
         </li>
         <li class="one_quarter">
-          <div class="block clear"><a href="#"><i class="fas fa-clock"></i></a> <span><strong> Monday - Saturday:</strong> 08.00am - 18.00pm</span></div>
+          <div class="block clear"><a href="#"></a> <span><strong> Monday - Saturday:</strong> 08.00am - 10.00pm</span></div>
         </li>
-        <!-- <li class="one_quarter">
-          <div class="block clear"><a href="#"><i class="fas fa-map-marker-alt"></i></a> <span><strong>Come visit us:</strong> Directions to <a href="#">our location</a></span></div>
-        </li> -->
       </ul>
     </div>
-    <!-- ################################################################################################ -->
   </footer>
 </div>
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- <div class="wrapper row5">
-  <div id="copyright" class="hoc clear"> 
-    <!-- ################################################################################################ -->
-    <!-- <p class="fl_left">Copyright &copy; 2018 - All Rights Reserved - <a href="#">Domain Name</a></p>
-    <p class="fl_right">Template by <a target="_blank" href="https://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
-    <!-- ################################################################################################ -->
-  <!-- </div>
-</div> --> 
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
 <a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>
-<!-- JAVASCRIPTS -->
 <script src="layout/scripts/jquery.min.js"></script>
 <script src="layout/scripts/jquery.backtotop.js"></script>
 <script src="layout/scripts/jquery.mobilemenu.js"></script>
+
 </body>
 </html>

@@ -1,4 +1,8 @@
 import { Component, OnInit } from "@angular/core";
+import { MenuTabComponent } from "../menu-tab/menu-tab.component";
+import { ItemService } from "../service/item.service";
+import { LocationService } from "../service/location.service";
+import { RestaurantService } from "../service/restaurant.service";
 
 @Component({
   selector: "app-home",
@@ -6,48 +10,61 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./home.component.css"],
 })
 export class HomeComponent implements OnInit {
-  constructor() {}
+  constructor(public itemService:ItemService, public locService:LocationService, public resService:RestaurantService) {}
   name = "Angular 5";
   selectedCountry: any;
-  restaurants = {};
-  locations = [
-    {
-      id: 1,
-      name: "Hyderabad-jubilee hills",
-      restaurants: ["dominos1", "pizzahouse", "pizzahut"],
-    },
-    {
-      id: 2,
-      name: "Hyderabad-Panjagutta",
-      restaurants: ["dominos2", "pizzahouse", "pizzahut"],
-    },
-    {
-      id: 3,
-      name: "Banglore-Whitefield",
-      restaurants: ["dominos3", "pizzahouse", "pizzahut"],
-    },
-    {
-      id: 4,
-      name: "Banglore-Manyata",
-      restaurants: ["dominos4", "pizzahouse", "pizzahut"],
-    },
-    {
-      id: 5,
-      name: "Delhi-Redfort",
-      restaurants: ["dominos5", "pizzahouse", "pizzahut"],
-    },
-    {
-      id: 6,
-      name: "Delhi-Rajbhavan",
-      restaurants: ["dominos6", "pizzahouse", "pizzahut"],
-    },
-  ];
+  // restaurant:string;
+  
   ngOnInit() {
-    this.restaurants = this.locations.filter((x) => x.id == 1)[0].restaurants;
+    // this.getAllItems();
+    this.getAllLocations();
+    // this.selectChangeHandler();
+    // this.onChange(deviceValue:Number);
+    // this.restaurants = this.locations.filter((x) => x.id == 1)[0].restaurants;
+  }
+
+  selectOption(locations: String) {
+    //getted from event
+    console.log(locations);
+    //getted from binding
+    // console.log(this.selected)
+  }
+  getAllLocations() {
+    this.locService.getLocations().subscribe((res: any) => {
+      console.log(res);
+      this.locService.locations = res;
+    });
+  }
+  getAllRestaurantsByLocations(id) {
+    this.resService.getAllRestaurantsByLocations(id).subscribe((res: any) => {
+      console.log(res);
+      this.resService.restaurants = res;
+    });
+  }
+
+  // getAllItems() {
+  //   this.itemService.getItems().subscribe((res: any) => {
+  //     console.log(res);
+  //     this.itemService.items = res;
+  //   });
+  // }
+    getItemsByRestaurant(id) {
+      this.resService.findItemsByRestaurant(id).subscribe((res: any) => {
+        console.log(res);
+        this.itemService.items = res;
+        console.log(this.itemService.items);
+      });
+  }
+  selectChangeHandler (event: number) {
+    console.log(event);
+    // this.restaurant = event.target.value;
+    // this.menuComp.n= event.target.value;
+    this.getItemsByRestaurant(event)
   }
   onChange(deviceValue) {
-    this.restaurants = this.locations.filter(
-      (x) => x.id == deviceValue
-    )[0].restaurants;
+    // console.log(this.restaurant);
+    console.log(deviceValue);
+    this.getAllRestaurantsByLocations(deviceValue);
   }
 }
+

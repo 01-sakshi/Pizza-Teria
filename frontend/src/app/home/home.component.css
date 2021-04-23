@@ -1,17 +1,19 @@
 @charset "utf-8";
-/*
-Template Name: Sislaf
-Author: <a href="https://www.os-templates.com/">OS Templates</a>
-Author URI: https://www.os-templates.com/
-Copyright: OS-Templates.com
-Licence: Free to use under our free template licence terms
-Licence URI: https://www.os-templates.com/template-terms
-File: Layout CSS
-*/
 
-/* @import url("fontawesome-free/css/fontawesome-all.min.css");
-@import url("framework.css"); */
+/* Three image containers (use 25% for four, and 50% for two, etc) */
 
+.column1 {
+	float: left;
+	width: 25%;
+	padding: 5px;
+  }
+  
+  /* Clear floats after image containers */
+  .row1::after {
+	content: "";
+	/* clear: both; */
+	display: table;
+  }
 
 .o{
     color:black;
@@ -43,27 +45,11 @@ img {
 .b .h1{
 	text-align: center;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .head{
-	background-image: url("https://i.gifer.com/21dV.gif");
+	background-image: url("http://blog.tableschairsbarstools.com/wp-content/uploads/2018/08/Header.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 }
-
 
 
 /* Rows
@@ -111,9 +97,9 @@ img {
 --------------------------------------------------------------------------------------------------------------- */
 #pageintro{padding:200px 0 300px;}/* 300px => 100px for #introblocks negative margin */
 
-#pageintro article, #pageintro article p{display:block; max-width:75%; margin:0 auto; text-align:center;}
-#pageintro article p{max-width:65%; line-height:2rem;}
-#pageintro .heading{margin-bottom:20px; font-size:4rem; color:#1C1D21;}
+#pageintro article, #pageintro article p{display:block;float:left; max-width:75%; margin:0 auto; text-align:left;}
+#pageintro article p{max-width:60%; line-height:2rem;}
+#pageintro .heading{margin-bottom:20px; font-size:4rem; color:#D7D7D7;}
 #pageintro footer{margin-top:50px;}
 
 

@@ -19,6 +19,10 @@ public class Restaurant {
 		this.name = name;
 	}
 
+	public Restaurant() {
+		super();
+	}
+
 	public int getId() {
 		return id;
 	}

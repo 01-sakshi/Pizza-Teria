@@ -9,6 +9,10 @@ public class Location {
 	private int id;
 	private String name;
 
+	public Location() {
+		super();
+	}
+
 	public Location(int id, String name) {
 		super();
 		this.id = id;

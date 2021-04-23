@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Params, Router } from '@angular/router';
 import { ItemService } from '../service/item.service';
 import { CartService } from '../service/cart.service';
@@ -9,12 +9,11 @@ import { CategoryService } from '../service/category.service';
   templateUrl: './menu-tab.component.html',
   styleUrls: ['./menu-tab.component.css'],
 })
+
 export class MenuTabComponent implements OnInit {
   [x: string]: any;
-  selectedCategory: string = 'PIZZA';
-  n:number=0;
-  // categories: string[] = ['PIZZA', 'BURGER'];
-
+  n:number;
+  // @Input() msgFromParent1: any[];
   onProductClick(id) {
     this.itemService.findItemById(id).subscribe(
       (res:any) => {
@@ -25,7 +24,6 @@ export class MenuTabComponent implements OnInit {
 
     this.router.navigate(['/restaurants/menu-tab/view-product']);
   }
-  
 
   constructor(public itemService:ItemService, private router: Router, public cartService: CartService, public categoryService: CategoryService) {}
   ngOnInit() {
@@ -55,11 +53,11 @@ export class MenuTabComponent implements OnInit {
       this.itemService.items = res;
     });
   }
-
   getAllCategories() {
     this.categoryService.getCategory().subscribe((res: any) => {
       console.log(res);
       this.categoryService.categories = res;
     });
   }
+  
 }
