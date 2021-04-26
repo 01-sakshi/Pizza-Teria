@@ -4,30 +4,33 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-
-
   export class CartService {
-    items = [];
-  
-    getShippingPrices() {
-      return this.http.get<{type: string, price: number}[]>('/assets/shipping.json');
-    }
-    
-    constructor(
-      private http: HttpClient
-    ) {}
 
-    addToCart(product) {
-      this.items.push(product);
+    private data:any[] = [];
+
+    public set orders(orders){
+      this.data = orders;
     }
-  
-    getItems() {
-      return this.items;
+    public get orders(){
+      return this.orders;
     }
+    public set order(order){
+      this.data = order;
+    }
+    public get order(){
+      return this.data;
+    }
+    body:any;
+    private host:string = "http://localhost:8080";
   
-    clearCart() {
-      this.items = [];
-      return this.items;
+    constructor(private http: HttpClient) { }
+  
+    findOrderByUser(username){
+      return this.http.get(`${this.host}/order/${username}`);
+    }
+
+    CreateOrder(username,rid,itemid,quantity,size,toppings,price){
+      alert("in order service");
+      return this.http.post<any>(`${this.host}/order/${username}/${rid}/${itemid}/${quantity}/${size}/${toppings}/${price}`,this.body);
     }
   }
-

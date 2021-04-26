@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Output } from "@angular/core";
 import { MenuTabComponent } from "../menu-tab/menu-tab.component";
 import { ItemService } from "../service/item.service";
 import { LocationService } from "../service/location.service";
@@ -11,23 +11,19 @@ import { RestaurantService } from "../service/restaurant.service";
 })
 export class HomeComponent implements OnInit {
   constructor(public itemService:ItemService, public locService:LocationService, public resService:RestaurantService) {}
-  name = "Angular 5";
-  selectedCountry: any;
-  // restaurant:string;
+  // name = "Angular 5";
   
   ngOnInit() {
     // this.getAllItems();
     this.getAllLocations();
-    // this.selectChangeHandler();
-    // this.onChange(deviceValue:Number);
-    // this.restaurants = this.locations.filter((x) => x.id == 1)[0].restaurants;
+    
+    
   }
 
   selectOption(locations: String) {
     //getted from event
     console.log(locations);
-    //getted from binding
-    // console.log(this.selected)
+    
   }
   getAllLocations() {
     this.locService.getLocations().subscribe((res: any) => {
@@ -53,16 +49,15 @@ export class HomeComponent implements OnInit {
         console.log(res);
         this.itemService.items = res;
         console.log(this.itemService.items);
+        localStorage.setItem('Storeitems', JSON.stringify(id));
+        // console.log(JSON.parse(sessionStorage.getItem('Storeitems')));
       });
   }
   selectChangeHandler (event: number) {
     console.log(event);
-    // this.restaurant = event.target.value;
-    // this.menuComp.n= event.target.value;
     this.getItemsByRestaurant(event)
   }
   onChange(deviceValue) {
-    // console.log(this.restaurant);
     console.log(deviceValue);
     this.getAllRestaurantsByLocations(deviceValue);
   }

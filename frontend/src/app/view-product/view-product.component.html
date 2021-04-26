@@ -1,44 +1,41 @@
 <div class="product_container">
-  <div class="empty_container"></div>
-  <div class="item_container">
+  <div class="item_container" ng-model="itemService.item" value="item">
     <img
       class="item_img"
       src="{{ itemService.item.imageUrl }}"
       alt="pizza image"
-      height="270px"
-    />
+      height="270px"/>
     <div class="item_name">{{ itemService.item.name }}</div>
     <div class="item_price">Rs. {{ itemService.item.price }}</div>
   </div>
+
   <div class="size_container">
-    <h3 class="size_header" style="color: tomato">Size</h3>
-    <hr class="hr_line" />
+    <h3 style="color: tomato">Size</h3>
+    <hr class="hr_line"/>
     <div class="row" *ngFor="let sizee of pizzaSizeService.sizes">
       <div class="col">
         <div class="form-check">
           <input
             class="form-check-input"
             type="radio"
-            name="exampleRadios"
+            name="size"
             id="exampleRadios1"
-            value="a"
+            value="size"
+            ng-model="sizee"
+            (change)="onSizeChange(sizee)"
             checked
           />
           <label class="form-check-label" for="exampleRadios1"> </label>
         </div>
-        <!-- <hr /> -->
       </div>
       <div class="col-8">
-        <h4>{{ sizee.size }}</h4>
-        <!-- <hr /> -->
+        <h2>{{ sizee.size }}</h2>
       </div>
       <div class="col">
         <span class="badge badge-warning">Rs. {{ sizee.price }}</span>
-        <!-- <hr /> -->
       </div>
     </div>
   </div>
-  <div class="empty_container"></div>
 
   <div class="toppings_container">
     <h3 class="size_header" style="color: tomato">Toppings</h3>
@@ -47,7 +44,7 @@
       <div class="col">
         <div class="form-check">
           <label class="form-check-label">
-            <input type="checkbox" class="form-check-input-1" value="" />
+            <input type="checkbox" class="form-check-input-1" value="" name="toppings" ng-model="toppingss" (change)="onToppingsChange(toppingss)" />
           </label>
         </div>
       </div>
@@ -65,10 +62,11 @@
     <button
       type="button"
       class="btn btn-danger btn-lg btn-block"
-      (click) = "addToCart()"
-    >
+      (click)="createOrder()" >
       Add to Cart
     </button>
   </div>
   <br />
 </div>
+
+

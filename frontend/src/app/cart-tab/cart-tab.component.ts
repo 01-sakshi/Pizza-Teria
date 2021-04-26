@@ -8,10 +8,8 @@ import { CartService } from '../service/cart.service';
   styleUrls: ['./cart-tab.component.css']
 })
 export class CartTabComponent{
-    items = this.cartService.getItems();
-  
     constructor(
-      private cartService: CartService
+      public cartService: CartService
     ) { }
   }
 

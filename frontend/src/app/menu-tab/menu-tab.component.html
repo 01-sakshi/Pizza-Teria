@@ -1,22 +1,31 @@
 <div class="header">
   <h2>Menu Page</h2>
+  
 </div>
-<p>{{ n }}</p>
 <div class="category_container">
   <button type="button" class="btn btn-primary" *ngFor="let category of categoryService.categories"
-    (click)="getAllItemsByCategory(category.name)">
+    ng-model="category.id"
+    (click)="getAllItemsByCategory(category.id)">
     {{ category.name | titlecase }}
+  </button>
+  <button type="button" class="btn btn-primary"
+    (click)="getAllItems()">
+   All
   </button>
 </div>
 <!-- let item of itemService.items -->
-<div class="card" *ngFor="let item of itemService.items">
+<div class="card" >
+  <div *ngFor="let item of itemService.items">
   <img class="card-img-top" [src]="item.imageUrl" height="200px" width="100%" alt="Card image cap" />
   <div class="card-body">
     <h5 class="card-title">{{ item.name }}</h5>
     <h6>Rs. {{ item.price }}</h6>
     <!-- <a  routerLink="view-product" class="btn btn-success">View Details</a> -->
     <a (click)="onProductClick(item.id)" class="btn btn-warning">View Details</a>
+    </div>
+    <!-- <div *ngIf="loadComponent">
+    <app-view-product></app-view-product>
+  </div> -->
   </div>
 </div>
-
 <router-outlet></router-outlet>

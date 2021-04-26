@@ -1,12 +1,17 @@
-<!-- <div class="container">
+<div class="container">
   <h5 align = "center">Welcome {{modelUser.firstname}}</h5>
-</div> -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+</div>
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="navbar-nav">
     <a class="nav-item nav-link" [routerLink]="['menu-tab']">Menu</a>
     <a class="nav-item nav-link" [routerLink]="['cart-tab']">Cart</a>
     <a class="nav-item nav-link" [routerLink]="['profile-tab']">Profile</a>
   </div>
-</nav>
-
+</nav> -->
+<div class="topnav">
+  <a [routerLink]="['menu-tab']">Menu</a>
+  <a [routerLink]="['cart-tab']">Cart</a>
+  <a [routerLink]="['profile-tab']">Profile</a>
+  <button style="height:40px ;background-color: red;" routerLink="/home" type="button" class="bigbutton" (click)="clearLocal()"><span>Log Out</span></button>
+</div>
 <router-outlet></router-outlet>

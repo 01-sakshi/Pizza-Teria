@@ -12,6 +12,7 @@
           name="form"
           #f="ngForm"
           (ngSubmit)="
+          usernamePresent()&&
             emailValidation &&
               phoneValidation &&
               passwordValidation &&
@@ -251,16 +252,16 @@
                 <td>
                   <label>Account</label>
                 </td>
-                <td>
-                  <select
+                <td><p>Your Are Logging In As User</p>
+                  <!-- <select
                     class="form-control"
                     [(ngModel)]="options"
                     name="options"
                     id="options"
                   >
                     <option>User</option>
-                    <option>Admin</option>
-                  </select>
+                    <!-- <option>Admin</option> -->
+                  <!-- </select> --> 
                 </td>
               </tr>
             </div>

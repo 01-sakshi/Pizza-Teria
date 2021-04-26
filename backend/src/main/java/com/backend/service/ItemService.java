@@ -50,8 +50,8 @@ public class ItemService {
 		return items;
 	}
 
-	public List<Item> findItemsByCategory(int a) {
-		List<Item> cat = catDao.findAllItems(a);
+	public List<Item> findItemsByCategory(int a,int b) {
+		List<Item> cat = catDao.findAllItems(a,b);
 		return cat;
 	}
 

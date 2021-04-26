@@ -41,11 +41,14 @@ export class RegisterComponent implements OnInit {
       if (this.present) {
         this.fontColor = "red";
         this.usernameAvailability = "UserName Already Taken";
+        alert("Looks like you have already registered Try to Login!");
       } else {
         this.fontColor = "green";
         this.usernameAvailability = "Available";
+        
       }
-      this.router.navigate(["register"]);
+      // this.router.navigate(["login"]);
+      this.router.navigate(["login"]);
     });
   }
 

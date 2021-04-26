@@ -1,0 +1,39 @@
+<div class="form-group" style="background-color: blanchedalmond; text-align: center; padding: 20px;">
+<button type="button" class="btn btn-outline-info" (click)=cardPay()>Card Payment</button>
+<button type="button" class="btn btn-outline-info" (click)=codPay()>Cash On Delivery</button>
+</div>
+<body>   
+<form *ngIf="card" style="background-color: blanchedalmond;" (ngSubmit)="Success()">
+      <div class="form-group">
+        <label>Card Number</label>
+        <input type="text" class="form-control" id="cardNo" placeholder="1234-5678-1234-5678"  [(ngModel)]="model.cardNo" pattern="[0-9]{16}"/>
+      </div>
+      <div class="form-group">
+        <label for="card">Card Holder's Name</label>
+        <input type="text" id="CardName" class="form-control" placeholder="Name" pattern="[A-Za-z]{0,10}" required />
+      </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="ExpDate">Expiry Date</label>
+        <input type="date" class="form-control" ng-model="data.StartDate" name="StartDate" min="{{date | date:'yyyy-MM-dd'}}" required />
+      </div>
+      <div class="form-group col-md-6">
+        <label for="CVV">CVV</label>
+        <input type="text" class="form-control" id="cvv" placeholder="123" pattern="[0-9]{3}" required/>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" required/>
+        <label class="form-check-label" for="gridCheck">
+          I Confirm Details
+        </label>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-outline-success">PAY</button> 
+  </form>
+  <form *ngIf="cod" style="background-color: blanchedalmond;" >
+    <p>Pay At Home</p>
+    <button type="submit" class="btn btn-outline-success" (click)="Success()">Proceed to checkout</button> 
+  </form>
+</body>

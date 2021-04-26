@@ -13,6 +13,7 @@ import { CartTabComponent } from "./cart-tab/cart-tab.component";
 import { MenuTabComponent } from "./menu-tab/menu-tab.component";
 import { ViewProductComponent } from "./view-product/view-product.component";
 import { ProfileTabComponent } from "./profile-tab/profile-tab.component";
+import { PaymentComponent } from './payment/payment.component';
 
 const appRoutes: Routes = [
   { path: "", component: HomeComponent },
@@ -55,6 +56,9 @@ const appRoutes: Routes = [
       },
     ]
   },
+  {
+    path: "payment",component: PaymentComponent
+     },
   { path: "register", component: RegisterComponent },
   { path: "login", component: LoginComponent },
   { path: "restaurants", children: [
@@ -95,7 +99,8 @@ const appRoutes: Routes = [
     MenuTabComponent,
     ViewProductComponent,
     CartTabComponent,
-    ProfileTabComponent
+    ProfileTabComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,

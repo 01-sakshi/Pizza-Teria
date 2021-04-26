@@ -29,7 +29,7 @@ export class CategoryService {
     return this.http.get(`${this.host}/items/cate`);
   }
 
-  findItemByCategory(id:number){
-    return this.http.get(`${this.host}/items/cat/${id}`);
+  findItemByCategoryAndRestaurant(id:number,rid:number){
+    return this.http.get(`${this.host}/items/cat/${id}/${rid}`);
   }
 }

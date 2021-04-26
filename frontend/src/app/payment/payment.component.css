@@ -1,0 +1,16 @@
+body {
+    text-align: center;
+    margin-top: 50px;
+}
+form {
+    width:40%;
+    display: inline-block;
+    border: gray solid;
+    padding:10px;
+}
+.d{
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/MasterCard_Logo.svg/1200px-MasterCard_Logo.svg.png);
+   margin-left: 200px;
+    background-size: 100px 150px;
+    background-repeat: no-repeat;
+}

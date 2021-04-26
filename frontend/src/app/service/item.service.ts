@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-
 export class ItemService {
 
   private data:any[] = [];
@@ -25,7 +24,6 @@ export class ItemService {
   private host:string = "http://localhost:8080";
 
   constructor(private http: HttpClient) { }
-
   getItems(){
     return this.http.get(`${this.host}/items`);
   }
@@ -38,5 +36,4 @@ export class ItemService {
   saveItem(item){
     return this.http.post(`${this.host}/items`, item);
   }
- 
 }

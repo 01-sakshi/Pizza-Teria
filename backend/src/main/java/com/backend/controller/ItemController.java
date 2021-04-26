@@ -38,9 +38,9 @@ public class ItemController {
 		return itemService.findItems();
 	}
 	
-	@GetMapping("/cat/{id}")
-	public List<Item> findItemsByCategory(@PathVariable int id){
-		return itemService.findItemsByCategory(id);
+	@GetMapping("/cat/{id}/{rid}")
+	public List<Item> findItemsByCategory(@PathVariable int id, @PathVariable int rid){
+		return itemService.findItemsByCategory(id, rid);
 	}
 	
 	@GetMapping("/cate")
