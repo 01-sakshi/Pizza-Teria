@@ -3,7 +3,7 @@ package com.backend.model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity
+@Entity(name="user")
 public class User {
 
 	@Id
@@ -14,14 +14,13 @@ public class User {
 	private String email;
 	private String address;
 	private String phone;
-	private boolean role;
 
 	public User() {
 
 	}
 
 	public User(String username, String password, String firstname, String lastname, String email, String address,
-			String phone, boolean role) {
+			String phone) {
 		this.username = username;
 		this.password = password;
 		this.firstname = firstname;
@@ -29,15 +28,6 @@ public class User {
 		this.email = email;
 		this.address = address;
 		this.phone = phone;
-		this.role = role;
-	}
-
-	public boolean isAdmin() {
-		return role;
-	}
-
-	public void setMerchant(boolean role) {
-		this.role = role;
 	}
 
 	public String getUsername() {
@@ -101,8 +91,9 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User{" + "username='" + username + '\'' + ", password='" + password + '\'' + ", firstname='" + firstname
-				+ '\'' + ", lastname='" + lastname + '\'' + ", email='" + email + '\'' + ", address='" + address + '\''
-				+ ", phone=" + phone + ", admin=" + role + '}';
+		return "User [username=" + username + ", password=" + password + ", firstname=" + firstname + ", lastname="
+				+ lastname + ", email=" + email + ", address=" + address + ", phone=" + phone + "]";
 	}
+
+	
 }

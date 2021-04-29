@@ -11,7 +11,6 @@ import { RestaurantService } from "../service/restaurant.service";
 })
 export class HomeComponent implements OnInit {
   constructor(public itemService:ItemService, public locService:LocationService, public resService:RestaurantService) {}
-  // name = "Angular 5";
   
   ngOnInit() {
     // this.getAllItems();

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-payment',
@@ -10,7 +11,7 @@ export class PaymentComponent implements OnInit {
   cod:boolean=false;
   card:boolean=false;
   // flag:boolean=false;
-  constructor() { }
+  constructor(private router: Router,) { }
 
   ngOnInit() {
     localStorage.clear();
@@ -18,9 +19,7 @@ export class PaymentComponent implements OnInit {
 Success(){
   // if(this.flag){
   alert("Order Placed Successfully!");
-  // }
-  // else
-  // alert("Order Not Placed");
+  this.router.navigate(['/home']);
 }
   codPay(){
     this.card=false;
@@ -29,5 +28,8 @@ this.cod=!this.cod;
   cardPay(){
     this.cod=false;
     this.card=!this.card;
+  }
+  clearLocal() {
+    localStorage.clear();
   }
 }

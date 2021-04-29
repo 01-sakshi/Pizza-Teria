@@ -22,10 +22,10 @@ import com.backend.service.OrderService;
 public class OrderController {
 	@Autowired
 	OrderService orderService;
-//	Quantity int(10), Size int(10), Toppings varchar(20), Price int(50)
+	
 	@PostMapping("/{uname}/{rId}/{itemid}/{Quantity}/{Size}/{Toppings}/{price}")
 	public void createItem(@PathVariable String uname ,@PathVariable int rId,@PathVariable int itemid,@PathVariable int Quantity ,@PathVariable int Size,@PathVariable String Toppings,@PathVariable int price) {
-//		System.out.println(item);
+		System.out.println(rId);
 		orderService.createOrder(uname,rId,itemid,Quantity,Size,Toppings,price);
 	}
 	@GetMapping("/{uname}")

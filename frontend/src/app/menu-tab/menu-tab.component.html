@@ -1,6 +1,5 @@
 <div class="header">
   <h2>Menu Page</h2>
-  
 </div>
 <div class="category_container">
   <button type="button" class="btn btn-primary" *ngFor="let category of categoryService.categories"
@@ -13,19 +12,79 @@
    All
   </button>
 </div>
-<!-- let item of itemService.items -->
 <div class="card" >
   <div *ngFor="let item of itemService.items">
   <img class="card-img-top" [src]="item.imageUrl" height="200px" width="100%" alt="Card image cap" />
   <div class="card-body">
     <h5 class="card-title">{{ item.name }}</h5>
     <h6>Rs. {{ item.price }}</h6>
-    <!-- <a  routerLink="view-product" class="btn btn-success">View Details</a> -->
     <a (click)="onProductClick(item.id)" class="btn btn-warning">View Details</a>
+    <div *ngIf="flag">
+      <div class="product_container">
+        <div class="item_container" ng-model="itemService.item" value="item">
+        <div class="size_container">
+          <h6 style="color: tomato">Size</h6>
+          <hr class="hr_line"/>
+          <div class="row" *ngFor="let sizee of pizzaSizeService.sizes">
+            <div class="col">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="size"
+                  id="exampleRadios1"
+                  value="size"
+                  ng-model="sizee"
+                  (change)="onSizeChange(sizee)"
+                />
+                <label class="form-check-label" for="exampleRadios1"> </label>
+              </div>
+            </div>
+            <div class="col-8">
+              <h2>{{ sizee.size }}</h2>
+            </div>
+            <div class="col">
+              <span class="badge badge-warning">Rs. {{ sizee.price }}</span>
+            </div>
+          </div>
+        </div>
+      
+        <div class="toppings_container">
+          <h3 class="size_header" style="color: tomato">Toppings</h3>
+          <hr class="hr_line" />
+          <div class="row" *ngFor="let toppingss of pizzaToppingService.toppings">
+            <div class="col">
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input-1" value="" name="toppings" ng-model="toppingss" (change)="onToppingsChange(toppingss)" />
+                </label>
+              </div>
+            </div>
+            <div class="col-8">
+              <h4>{{ toppingss.topping }}</h4>
+            </div>
+            <div class="col">
+              <span class="badge badge-warning">Rs. {{ toppingss.price }}</span>
+            </div>
+          </div>
+        </div>
+        <br />
+        <br />
+        <div class="footer">
+          <button
+            type="button"
+            class="btn btn-outline-danger btn-lg btn-block"
+            (click)="createOrder()" 
+            >
+            Add to Cart
+          </button>
+            <button type="button" class="btn btn-outline-danger btn-lg btn-block" routerLink="../../../home/cart-tab">Proceed To Checkout</button>
+        </div>
+        <br/>
+      </div>
     </div>
-    <!-- <div *ngIf="loadComponent">
-    <app-view-product></app-view-product>
-  </div> -->
+    </div>
   </div>
-</div>
+  </div>
+
 <router-outlet></router-outlet>

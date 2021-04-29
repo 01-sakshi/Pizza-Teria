@@ -3,7 +3,7 @@ package com.backend.model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity(name = "OrderCart")
+@Entity(name = "PlaceOrder")
 public class Order {
 	@Id
 	private int id;

@@ -1,0 +1,9 @@
+th,td{
+    padding: 15px;
+}
+
+img{
+    width:100px;
+    height: 150px;
+    border-style: solid;
+}

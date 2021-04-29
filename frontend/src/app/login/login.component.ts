@@ -29,10 +29,10 @@ export class LoginComponent implements OnInit {
       (res) => {
         // localStorage.setItem(key,JSON.stringify(res));
         sessionStorage.setItem(key, JSON.stringify(res));
-        if (res != null && !res.role) {
+        if (res != null) {
           this.router.navigate(["restaurants"]);
         }
-        if (res != null && res.role) {
+        if (res != null ) {
           this.router.navigate(["restaurants"]);
         }
         if (res == null) {

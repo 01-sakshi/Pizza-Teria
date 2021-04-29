@@ -6,7 +6,7 @@
 <form *ngIf="card" style="background-color: blanchedalmond;" (ngSubmit)="Success()">
       <div class="form-group">
         <label>Card Number</label>
-        <input type="text" class="form-control" id="cardNo" placeholder="1234-5678-1234-5678"  [(ngModel)]="model.cardNo" pattern="[0-9]{16}"/>
+        <input type="text" class="form-control" placeholder="1234-5678-1234-5678" pattern="[0-9]{16}" required/>
       </div>
       <div class="form-group">
         <label for="card">Card Holder's Name</label>
@@ -34,6 +34,6 @@
   </form>
   <form *ngIf="cod" style="background-color: blanchedalmond;" >
     <p>Pay At Home</p>
-    <button type="submit" class="btn btn-outline-success" (click)="Success()">Proceed to checkout</button> 
+    <button type="submit" class="btn btn-outline-success" (click)="Success()" routerLink="./../home">Proceed to checkout</button> 
   </form>
 </body>

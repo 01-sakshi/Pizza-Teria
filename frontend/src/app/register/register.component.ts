@@ -19,7 +19,6 @@ export class RegisterComponent implements OnInit {
     email: "",
     address: "",
     phone: "",
-    role: false,
   };
 
   options: string = null;
@@ -41,21 +40,15 @@ export class RegisterComponent implements OnInit {
       if (this.present) {
         this.fontColor = "red";
         this.usernameAvailability = "UserName Already Taken";
-        alert("Looks like you have already registered Try to Login!");
       } else {
         this.fontColor = "green";
         this.usernameAvailability = "Available";
-        
       }
-      // this.router.navigate(["login"]);
-      this.router.navigate(["login"]);
+      this.router.navigate(["register"]);
     });
   }
 
-  updateSelect() {
-    this.model.role= this.options.length != 4;
-  }
-
+  
   checkPhone() {
     let matcher = new RegExp("^[+ 0-9]{10}$");
     if (String(this.model.phone).length == 10)
@@ -84,7 +77,7 @@ export class RegisterComponent implements OnInit {
   }
 
   registerUser(): void {
-    this.updateSelect();
+   
 
     let url = "http://localhost:8080/register";
     this.http.post<User>(url, this.model).subscribe(

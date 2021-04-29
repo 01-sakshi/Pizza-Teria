@@ -1,16 +1,16 @@
 <div class="product_container">
   <div class="item_container" ng-model="itemService.item" value="item">
-    <img
+    <!-- <img
       class="item_img"
       src="{{ itemService.item.imageUrl }}"
       alt="pizza image"
-      height="270px"/>
-    <div class="item_name">{{ itemService.item.name }}</div>
-    <div class="item_price">Rs. {{ itemService.item.price }}</div>
+      height="270px"/> -->
+    <!-- <div class="item_name">{{ itemService.item.name }}</div>
+    <div class="item_price">Rs. {{ itemService.item.price }}</div> -->
   </div>
 
   <div class="size_container">
-    <h3 style="color: tomato">Size</h3>
+    <h6 style="color: tomato">Size</h6>
     <hr class="hr_line"/>
     <div class="row" *ngFor="let sizee of pizzaSizeService.sizes">
       <div class="col">
@@ -23,7 +23,6 @@
             value="size"
             ng-model="sizee"
             (change)="onSizeChange(sizee)"
-            checked
           />
           <label class="form-check-label" for="exampleRadios1"> </label>
         </div>
@@ -61,12 +60,15 @@
   <div class="footer">
     <button
       type="button"
-      class="btn btn-danger btn-lg btn-block"
-      (click)="createOrder()" >
+      class="btn btn-outline-danger btn-lg btn-block"
+      (click)="createOrder()" 
+      >
       Add to Cart
     </button>
+      <!-- <button type="button" class="btn btn-outline-danger btn-lg btn-block" routerLink="../../menu-tab" (click)="Menu()">Add More Items To Cart</button> -->
+      <button type="button" class="btn btn-outline-danger btn-lg btn-block" routerLink="../../../home/cart-tab">Proceed To Checkout</button>
   </div>
-  <br />
+  <br/>
 </div>
 
 

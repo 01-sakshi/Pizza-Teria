@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { AppComponent, User } from "../app.component";
+import { CartService } from "../service/cart.service";
 
 @Component({
   selector: "app-restaurants",
@@ -16,11 +17,11 @@ export class RestaurantsComponent implements OnInit {
     firstname: "",
     lastname: "",
     address: "",
-    role: null,
   };
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,private cartService: CartService) {}
   user: User = AppComponent.modelUser;
+  flag:Boolean=false;
 
   ngOnInit() {
     if (sessionStorage.getItem("userData") == null) {
@@ -30,8 +31,8 @@ export class RestaurantsComponent implements OnInit {
     console.log(userData);
     Object.assign(this.modelUser, userData);
   }
-
   clearLocal() {
     sessionStorage.clear();
+    localStorage.clear();
   }
 }

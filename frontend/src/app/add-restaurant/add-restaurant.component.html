@@ -1,0 +1,52 @@
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+</head><h3 align="center">Add Restaurant</h3>
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6" >
+    <div [hidden]="submitted" style="width: 400px;">
+      <form name="form"
+      #f="ngForm"
+     
+     
+       (ngSubmit)="addRestaurant(restaurant_id,location_id,restaurant_name,address)"
+     >
+          <div class="form-group">
+              <label for="id">Restaurant ID</label>
+              <input type="number" class="form-control" name="restaurant_id"  [(ngModel)]="restaurant_id"  data-toggle="tooltip" 
+                 data-placement="right" title="Enter Restaurant ID" >
+          </div>
+          <div class="form-group">
+            <label for="id">Location ID</label>
+            <input type="number" class="form-control" name="location_id"  [(ngModel)]="location_id"  data-toggle="tooltip" 
+               data-placement="right" title="Enter Location ID" >
+        </div>
+
+  
+          <div class="form-group">
+              <label for="name">Restaurant Name</label>
+              <input type="text" class="form-control" name="restaurant_name" [(ngModel)]="restaurant_name" 
+                data-toggle="tooltip" data-placement="right" title="Enter restaurant name">
+          </div>
+  
+          <div class="form-group">
+              <label >Address</label>
+              <input type="text" class="form-control" name="address" [(ngModel)]="address" 
+                data-toggle="tooltip" data-placement="right" title="Enter address">
+          </div>
+          
+  
+          <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+  </div>
+  </div>
+  <div class="col-sm-4"></div>
+</div>
+<div class="row">
+  <div class="col-sm-4"></div>
+  
+  <div class="col-sm-4"></div>
+</div>
+
+
+

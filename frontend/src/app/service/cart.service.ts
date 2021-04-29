@@ -12,7 +12,7 @@ import { Injectable } from '@angular/core';
       this.data = orders;
     }
     public get orders(){
-      return this.orders;
+      return this.data;
     }
     public set order(order){
       this.data = order;
@@ -25,12 +25,15 @@ import { Injectable } from '@angular/core';
   
     constructor(private http: HttpClient) { }
   
-    findOrderByUser(username){
+    findOrdersByUser(username){
       return this.http.get(`${this.host}/order/${username}`);
     }
 
     CreateOrder(username,rid,itemid,quantity,size,toppings,price){
-      alert("in order service");
-      return this.http.post<any>(`${this.host}/order/${username}/${rid}/${itemid}/${quantity}/${size}/${toppings}/${price}`,this.body);
+      // alert("in order service");
+      return this.http.post<any>(`${this.host}/order/${username}/${rid}/${itemid}/${quantity}/${size}/${toppings}/${price}`,this.body).subscribe((res: any) => {
+        console.log(res);
+      // this.itemService.items = res;
+    });
     }
   }

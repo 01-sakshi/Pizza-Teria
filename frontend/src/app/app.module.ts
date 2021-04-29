@@ -12,11 +12,39 @@ import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { CartTabComponent } from "./cart-tab/cart-tab.component";
 import { MenuTabComponent } from "./menu-tab/menu-tab.component";
 import { ViewProductComponent } from "./view-product/view-product.component";
-import { ProfileTabComponent } from "./profile-tab/profile-tab.component";
+// import { AdminComponent } from './admin/admin.component';
+// import { AdminTasksComponent } from './admin-tasks/admin-tasks.component';
 import { PaymentComponent } from './payment/payment.component';
+import { ProfileTabComponent } from "./profile-tab/profile-tab.component";
+import { AdminComponent } from "./admin/admin.component";
+import { AdminTasksComponent } from "./admin-tasks/admin-tasks.component";
+import { AddItemComponent } from "./add-item/add-item.component";
+import { AddLocationComponent } from "./add-location/add-location.component";
+import { AddRestaurantComponent } from "./add-restaurant/add-restaurant.component";
 
 const appRoutes: Routes = [
   { path: "", component: HomeComponent },
+  { path: 'admin-tasks', component: AdminTasksComponent },
+  {
+    path:"admin",
+    children:[
+     
+      {
+        component: AddItemComponent,
+        path:'add-item'
+      },
+      {
+        component:AddLocationComponent,
+        path:'add-location'
+      },
+      {
+        component:AddRestaurantComponent,
+        path:'add-restaurant'
+      }
+    ]
+  },
+  
+  
   // { path: "home", component: HomeComponent },
   {
     path: "home",
@@ -100,7 +128,12 @@ const appRoutes: Routes = [
     ViewProductComponent,
     CartTabComponent,
     ProfileTabComponent,
-    PaymentComponent
+    PaymentComponent,
+    AdminComponent,
+    AdminTasksComponent,
+    AddItemComponent,
+    AddLocationComponent,
+    AddRestaurantComponent
   ],
   imports: [
     BrowserModule,

@@ -15,7 +15,7 @@ export class AppComponent {
     firstname: "",
     lastname: "",
     address: "",
-    role: null,
+
   };
 }
 // ---------------------------------------------------------------------------------
@@ -28,5 +28,4 @@ export class User {
   email: string;
   address: string;
   phone: string;
-  role: boolean;
 }
